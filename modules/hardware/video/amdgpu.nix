@@ -5,18 +5,30 @@
     enable = true;
     videoDrivers = [ "amdgpu" ];
   };
-  environment.systemPackages = with pkgs; [ rocmPackages.amdsmi ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.amdgpu.initrd.enable = true;
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    # driSupport = true;
+    # driSupport32Bit = true;
     extraPackages = with pkgs; [
-      amdvlk
+      rocmPackages.clr.icd
+      rocmPackages.clr
+      rocmPackages.clr
+      rocmPackages.rocminfo
+      rocmPackages.rocm-runtime
+      mesa
+      libva
       libvdpau-va-gl
-      vaapiVdpau
-      # vulkan-loader
-      # vulkan-extension-layer
-      # vulkan-validation-layers
+      vulkan-loader
+      vulkan-validation-layers
+      amdvlk # Optional: AMD's proprietary Vulkan driver
+      mesa.opencl # Enables Rusticl (OpenCL) support
     ];
-    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  };
+  environment.variables = {
+    RUSTICL_ENABLE = "radeonsi";
+    ROC_ENABLE_PRE_VEGA = "1";
   };
 }

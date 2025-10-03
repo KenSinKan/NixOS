@@ -168,7 +168,7 @@ in
 
                 follow_mouse = 1;
 
-                touchpad.natural_scroll = false;
+                touchpad.natural_scroll = true;
 
                 tablet.output = "current";
 
@@ -547,25 +547,6 @@ in
               monitor = [
                 # Easily plug in any monitor
                 ",preferred,auto,1"
-
-                # My Monitors (Fine to leave these since i used the serial numbers)
-                "desc:BNQ BenQ EW277HDR 99J01861SL0,preferred,-1920x0,1"
-                "desc:BNQ BenQ EL2870U PCK00489SL0,preferred,0x0,2"
-                "desc:BNQ BenQ xl2420t 99D06760SL0,preferred,1920x-420,1,transform,1" # 5 for fipped
-              ];
-
-              workspace = [
-                # Binds workspaces to my monitors (find desc with: hyprctl monitors)
-                "1,monitor:desc:BNQ BenQ EL2870U PCK00489SL0,default:true"
-                "2,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-                "3,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-                "4,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
-                "5,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0,default:true"
-                "6,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
-                "7,monitor:desc:BNQ BenQ EW277HDR 99J01861SL0"
-                "8,monitor:desc:BNQ BenQ xl2420t 99D06760SL0,default:true"
-                "9,monitor:desc:BNQ BenQ xl2420t 99D06760SL0"
-                "10,monitor:desc:BNQ BenQ EL2870U PCK00489SL0"
               ];
             };
           };

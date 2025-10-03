@@ -19,4 +19,5 @@ in
       config.allowUnfree = true;
     };
   };
+  nix4vscode = inputs.nix4vscode.overlays.forVscode;
 }

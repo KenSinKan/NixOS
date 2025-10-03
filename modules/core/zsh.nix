@@ -116,7 +116,7 @@
             ll = "${pkgs.eza}/bin/eza -lha --icons=auto --sort=name --group-directories-first"; # long list all
             ld = "${pkgs.eza}/bin/eza -lhD --icons=auto"; # long list dirs
             tree = "${pkgs.eza}/bin/eza --icons=auto --tree"; # dir tree
-            vc = "code --disable-gpu"; # gui code editor
+            vc = "codium --disable-gpu"; # gui code editor
             nv = "nvim";
             nf = "${pkgs.microfetch}/bin/microfetch";
             cp = "cp -iv";

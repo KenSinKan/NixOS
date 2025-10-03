@@ -4,40 +4,47 @@
   ...
 }:
 {
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vscode" ];
   home-manager.sharedModules = [
     (_: {
+      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vscode" ];
       programs.vscode = {
         enable = true;
-        # mutableExtensionsDir = true; # TODO: test with home-manager
-        # package = pkgs.vscodium;
-        package = pkgs.vscode;
+        package = pkgs.vscodium;
+        # package = pkgs.vscode;
         profiles.default = {
-          extensions = with pkgs.vscode-extensions; [
-            bbenoist.nix
-            # arrterian.nix-env-selector
-            eamodio.gitlens
-            github.vscode-github-actions
-            yzhang.markdown-all-in-one
-            catppuccin.catppuccin-vsc
-            catppuccin.catppuccin-vsc-icons
-            # asvetliakov.vscode-neovim
-            # vscodevim.vim
-            tamasfe.even-better-toml
-            #jnoortheen.nix-ide
-            # redhat.vscode-yaml
-            # vadimcn.vscode-lldb
-            rust-lang.rust-analyzer
-            ms-vscode.cpptools
-            ms-vscode.cmake-tools
-            ms-vscode.makefile-tools
-            ziglang.vscode-zig
-            # ms-dotnettools.csharp
-            ms-python.python
-            # pkief.material-icon-theme
-            # equinusocio.vsc-material-theme
-            # dracula-theme.theme-dracula
-          ];
+          enableUpdateCheck = false;
+          enableExtensionUpdateCheck = false;
+          extensions =
+            with pkgs.vscode-extensions;
+            [
+              jnoortheen.nix-ide
+              # bbenoist.nix
+              # arrterian.nix-env-selector
+              mkhl.direnv
+              eamodio.gitlens
+              github.vscode-github-actions
+              yzhang.markdown-all-in-one
+              catppuccin.catppuccin-vsc
+              catppuccin.catppuccin-vsc-icons
+              # asvetliakov.vscode-neovim
+              # vscodevim.vim
+              tamasfe.even-better-toml
+              redhat.vscode-yaml
+              vadimcn.vscode-lldb
+              rust-lang.rust-analyzer
+              # ms-vscode.cpptools
+              llvm-vs-code-extensions.vscode-clangd
+              ms-vscode.cmake-tools
+              mhutchie.git-graph
+              ms-python.python
+
+            ]
+            ++ pkgs.nix4vscode.forVscode [
+              "theqtcompany.qt-core"
+              "theqtcompany.qt-cpp"
+              "theqtcompany.qt-ui"
+              "theqtcompany.qt-qml"
+            ];
           keybindings = [
             {
               key = "ctrl+q";
@@ -51,20 +58,21 @@
           ];
           userSettings = {
             "update.mode" = "none";
-            # "extensions.autoUpdate" = false; # Fixes vscode freaking out when theres an update
+            "extensions.autoUpdate" = false; # Fixes vscode freaking out when theres an update
             "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
             "window.menuBarVisibility" = "classic";
             "window.zoomLevel" = 0.5;
-            "editor.fontSize" = 14;
+            "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'SymbolsNerdFont', 'monospace', monospace";
+            "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font', 'SymbolsNerdFont'";
+            "editor.fontSize" = 16;
             "workbench.colorTheme" = "Catppuccin Mocha";
             "workbench.iconTheme" = "catppuccin-mocha";
             "catppuccin.accentColor" = "lavender";
-            "vsicons.dontShowNewVersionMessage" = true;
             "explorer.confirmDragAndDrop" = false;
             "editor.fontLigatures" = true;
             "workbench.startupEditor" = "none";
-            "telemetry.enableCrashReporter" = false;
-            "telemetry.enableTelemetry" = false;
+            "telemetry.telemetryLevel" = "off";
+            "debug.onTaskErrors" = "showErrors";
 
             "security.workspace.trust.untrustedFiles" = "open";
 
@@ -96,7 +104,7 @@
             "workbench.editor.limit.enabled" = true;
             "workbench.editor.limit.value" = 10;
             "workbench.editor.limit.perEditorGroup" = true;
-            "explorer.openEditors.visible" = 0;
+            "explorer.openEditors.visible" = 1;
             "breadcrumbs.enabled" = true;
             "editor.renderControlCharacters" = false;
             "editor.stickyScroll.enabled" = false; # Top code preview
@@ -105,33 +113,39 @@
             "editor.scrollbar.vertical" = "hidden";
             "editor.scrollbar.horizontal" = "hidden";
             "workbench.layoutControl.enabled" = false;
+            "files.autoSave" = "onFocusChange";
 
             "editor.mouseWheelZoom" = true;
 
+            "C_Cpp.intelliSenseEngine" = "disabled";
             "C_Cpp.autocompleteAddParentheses" = true;
-            "C_Cpp.formatting" = "vcFormat";
-            "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyFunction" = true;
-            "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyType" = true;
-            "C_Cpp.vcFormat.space.beforeEmptySquareBrackets" = true;
-            "C_Cpp.vcFormat.newLine.beforeOpenBrace.block" = "sameLine";
-            "C_Cpp.vcFormat.newLine.beforeOpenBrace.function" = "sameLine";
-            "C_Cpp.vcFormat.newLine.beforeElse" = false;
-            "C_Cpp.vcFormat.newLine.beforeCatch" = false;
-            "C_Cpp.vcFormat.newLine.beforeOpenBrace.type" = "sameLine";
-            "C_Cpp.vcFormat.space.betweenEmptyBraces" = true;
-            "C_Cpp.vcFormat.space.betweenEmptyLambdaBrackets" = true;
-            "C_Cpp.vcFormat.indent.caseLabels" = true;
+            "C_Cpp.formatting" = "clangFormat";
             "C_Cpp.intelliSenseCacheSize" = 2048;
             "C_Cpp.intelliSenseMemoryLimit" = 2048;
             "C_Cpp.default.browse.path" = [
               ''''${workspaceFolder}/**''
             ];
-            "C_Cpp.default.cStandard" = "gnu11";
+            "C_Cpp.default.cppStandard" = "c++23";
+            "C_Cpp.default.cStandard" = "c23";
             "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores" = false;
             "C_Cpp.intelliSenseUpdateDelay" = 500;
             "C_Cpp.workspaceParsingPriority" = "medium";
             "C_Cpp.clang_format_sortIncludes" = true;
             "C_Cpp.doxygen.generatedStyle" = "/**";
+
+            "qt-core.additionalQtPaths" = [
+              {
+                "name" = "Qt-6.9.2-linux-g++_from_PATH";
+                "path" = "/nix/store/b9f1fi67x2yb4qldiajhc5wicyqlwwhw-qt-full-6.9.2/bin/qtpaths";
+              }
+            ];
+
+            "direnv.path.executable" = "direnv";
+            "direnv.restart.automatic" = true;
+            "direnv.status.showChangesCount" = true;
+            "direnv.watchForChanges" = true;
+
+            "cmake.showNotAllDocumentsSavedQuestion" = false;
 
             "vim.leader" = "<Space>";
             "vim.useCtrlKeys" = true;

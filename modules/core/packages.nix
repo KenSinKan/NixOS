@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  # TODO: review
   programs = {
     fuse.userAllowOther = true;
     mtr.enable = true;
@@ -9,6 +8,19 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
+    };
+    amnezia-vpn.enable = true;
+    proxychains = {
+      enable = true;
+      package = pkgs.proxychains-ng;
+      proxies = {
+        myproxy = {
+          enable = true;
+          type = "socks5";
+          host = "127.0.0.1";
+          port = 1080;
+        };
+      };
     };
   };
 
@@ -25,6 +37,8 @@
     kdePackages.qtsvg # Sddm Dependency
     kdePackages.qtmultimedia # Sddm Dependency
     kdePackages.qtvirtualkeyboard # Sddm Dependency
+    kdePackages.qtwayland
+    kdePackages.ark
     fzf # Fuzzy Finder
     fd # Better Find
     git # Git
@@ -68,8 +82,28 @@
     # wget # Tool For Fetching Files With Links
     # ytmdl # Tool For Downloading Audio From YouTube
 
-    # devenv
+    devenv
     # devbox
     # shellify
+
+    p7zip
+    ayugram-desktop
+    onlyoffice-bin
+    vlc
+    qbittorrent
+    bitwarden-desktop
+    krita
+    byedpi
+    calc
+    hoppscotch
+    thunderbird
+    qtcreator
+    sage
+    nixd
+    nixfmt-rfc-style
+    obsidian
+    overskride
+    texliveFull
+    texstudio
   ];
 }
