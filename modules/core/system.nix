@@ -31,11 +31,16 @@ in
     xkb = {
       layout = "${kbdLayout}";
       variant = "${kbdVariant}";
+      options = "grp:alt_shift_toggle";
     };
   };
   nix = {
     # Nix Package Manager Settings
     settings = {
+      trusted-users = [
+        "root"
+        "maksim"
+      ];
       download-buffer-size = 200000000;
       auto-optimise-store = true; # May make rebuilds longer but less size
       substituters = [

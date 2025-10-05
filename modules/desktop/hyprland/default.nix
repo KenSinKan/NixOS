@@ -160,8 +160,8 @@ in
                 "pamixer --set-volume 50"
               ];
               input = {
-                kb_layout = "${kbdLayout},ru";
-                kb_variant = "${kbdVariant},";
+                kb_layout = "${kbdLayout}";
+                kb_variant = "${kbdVariant}";
                 repeat_delay = 275; # or 212
                 repeat_rate = 35;
                 numlock_by_default = true;
@@ -382,6 +382,10 @@ in
                 ",XF86AudioLowerVolume,exec,pamixer -d 2"
                 ",XF86AudioRaiseVolume,exec,pamixer -i 2"
               ];
+              bindr = [
+                "SHIFT + ALT, Alt_L, exec, ${./scripts/layoutnotify.sh}" # change keyboard layout
+                "SHIFT + ALT, Shift_L, exec, ${./scripts/layoutnotify.sh}" # change keyboard layout
+              ];
               bind =
                 let
                   autoclicker = pkgs.callPackage ./scripts/autoclicker.nix { };
@@ -406,7 +410,7 @@ in
                   "$mainMod, W, togglefloating" # toggle the window on focus to float
                   "$mainMod SHIFT, G, togglegroup" # toggle the window on focus to float
                   "ALT, return, fullscreen" # toggle the window on focus to fullscreen
-                  "$mainMod ALT, L, exec, hyprlock" # lock screen
+                  "$mainMod ALT, L, exec, LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 hyprlock" # lock screen
                   "$mainMod, backspace, exec, pkill -x wlogout || wlogout -b 4" # logout menu
                   "$CONTROL, ESCAPE, exec, pkill waybar || waybar" # toggle waybar
 
