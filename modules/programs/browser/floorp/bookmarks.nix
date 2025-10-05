@@ -14,41 +14,8 @@
           url = "https://www.twitch.tv";
         }
         {
-          name = "Netflix";
-          url = "https://www.netflix.com";
-        }
-        {
           name = "Github";
           url = "https://github.com/";
-        }
-        {
-          name = "ChatGPT";
-          url = "https://chatgpt.com/";
-        }
-        {
-          name = "Physics";
-          bookmarks = [
-            {
-              name = "Qubits";
-              url = "https://arxiv.org/pdf/1904.06560";
-            }
-            {
-              name = "Multi-Qubits";
-              url = "https://arxiv.org/pdf/2502.16479";
-            }
-            {
-              name = "Cryogenic Modeling";
-              url = "https://arxiv.org/pdf/2502.01945";
-            }
-            {
-              name = "Nuclear Spin Engineering";
-              url = "https://arxiv.org/pdf/2502.18450";
-            }
-            {
-              name = "Mixed State Entanglement";
-              url = "https://arxiv.org/pdf/2502.18446";
-            }
-          ];
         }
         {
           name = "NixOS";

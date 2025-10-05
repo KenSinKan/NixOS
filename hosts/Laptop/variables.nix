@@ -4,7 +4,7 @@
   desktop = "hyprland"; # Options: hyprland, i3-gaps, gnome, plasma6
   terminal = "alacritty"; # Options: kitty, alacritty
   editor = "vscode"; # Options: nixvim, vscode, helix, nvchad, neovim, emacs (WIP)
-  browser = "firefox"; # Options: firefox, floorp, zen
+  browser = "zen"; # Options: firefox, floorp, zen
   tuiFileManager = "yazi"; # Options: yazi, lf
   sddmTheme = "astronaut"; # Options: astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   wallpaper = "moon"; # See modules/themes/wallpapers for options
