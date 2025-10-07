@@ -145,6 +145,8 @@
             "direnv.status.showChangesCount" = true;
             "direnv.watchForChanges" = true;
 
+            "nix.enableLanguageServer" = true;
+            "nix.serverPath" = "nixd";
             "cmake.showNotAllDocumentsSavedQuestion" = false;
 
             "vim.leader" = "<Space>";
