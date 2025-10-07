@@ -27,6 +27,7 @@
             search = import ./search.nix { inherit pkgs; };
             userChrome = builtins.readFile ./userChrome.css;
             userContent = builtins.readFile ./userContent.css;
+            extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [ bitwarden ];
             extraConfig = ''
               ${builtins.readFile "${inputs.betterfox}/Fastfox.js"}
               ${builtins.readFile "${inputs.betterfox}/Peskyfox.js"}
