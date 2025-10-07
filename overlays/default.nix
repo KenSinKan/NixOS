@@ -19,5 +19,6 @@ in
       config.allowUnfree = true;
     };
   };
+  nur = inputs.nur.overlays.default;
   nix4vscode = inputs.nix4vscode.overlays.forVscode;
 }

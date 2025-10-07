@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   force = true;
-  default = "Startpage";
+  default = "google";
   privateDefault = "Startpage";
   order = [
     "Startpage"
@@ -21,7 +21,7 @@
       "Startpage" = {
         urls = [
           {
-            template = "https://www.startpage.com/sp/search?query={searchTerms}&prfe=038360dac42617e2336286a019b197c1db650883a5698f4ae16e38c5da02bde0a35c84e4f806f082758d15e14a7000393be0c9535dd6dd17a4785a4ae44d33f74b43cb4a213e098bcd169762";
+            template = "https://www.startpage.com/sp/search?query={searchTerms}";
           }
         ];
         # icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
