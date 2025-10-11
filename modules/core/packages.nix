@@ -102,8 +102,8 @@
     nixd
     nixfmt-rfc-style
     obsidian
-    overskride
     texliveFull
     texstudio
+    davinci-resolve
   ];
 }
