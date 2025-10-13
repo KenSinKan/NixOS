@@ -73,6 +73,9 @@
             "telemetry.telemetryLevel" = "off";
             "debug.onTaskErrors" = "showErrors";
 
+            "terminal.integrated.stickyScroll.enabled" = false;
+            "debug.openDebug" = "neverOpen";
+
             "security.workspace.trust.untrustedFiles" = "open";
 
             "git.enableSmartCommit" = true;
