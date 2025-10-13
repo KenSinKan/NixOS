@@ -44,6 +44,7 @@
   fileSystems."/home" = {
     device = "/dev/mapper/luks-db695cfa-7323-48d7-934a-a205e7f5bb2f";
     fsType = "btrfs";
+    options = [ "compress=zstd" ];
   };
 
   boot.initrd.luks.devices."luks-db695cfa-7323-48d7-934a-a205e7f5bb2f".device =
