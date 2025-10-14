@@ -143,6 +143,7 @@
 
             "nix.enableLanguageServer" = true;
             "nix.serverPath" = "nixd";
+
             "cmake.showNotAllDocumentsSavedQuestion" = false;
 
             "vim.leader" = "<Space>";

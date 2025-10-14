@@ -101,8 +101,6 @@
     thunderbird
     qtcreator
     sage
-    nixd
-    nixfmt-rfc-style
     obsidian
     texliveFull
     texstudio
