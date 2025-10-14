@@ -104,6 +104,6 @@
     obsidian
     texliveFull
     texstudio
-    davinci-resolve
+    # davinci-resolve
   ];
 }
