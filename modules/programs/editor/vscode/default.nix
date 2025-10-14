@@ -37,6 +37,7 @@
               ms-vscode.cmake-tools
               mhutchie.git-graph
               ms-python.python
+              visualjj.visualjj
             ]
             ++ pkgs.nix4vscode.forVscode [
               "theqtcompany.qt-core"

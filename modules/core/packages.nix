@@ -43,6 +43,8 @@
     fd # Better Find
     git # Git
     gh # Github Authentication Client
+    jujutsu # Git-compatible VCS with more freedom
+    jjui # TUI for jujutsu
     libjxl # Support for JXL Images
     microfetch # Small fetch (Blazingly fast)
     nix-prefetch-scripts # Find Hashes/Revisions of Nix Packages
