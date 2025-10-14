@@ -136,13 +136,6 @@
             "C_Cpp.clang_format_sortIncludes" = true;
             "C_Cpp.doxygen.generatedStyle" = "/**";
 
-            "qt-core.additionalQtPaths" = [
-              {
-                "name" = "Qt-6.9.2-linux-g++_from_PATH";
-                "path" = "/nix/store/b9f1fi67x2yb4qldiajhc5wicyqlwwhw-qt-full-6.9.2/bin/qtpaths";
-              }
-            ];
-
             "direnv.path.executable" = "direnv";
             "direnv.restart.automatic" = true;
             "direnv.status.showChangesCount" = true;
