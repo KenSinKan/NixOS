@@ -100,7 +100,7 @@
     hoppscotch
     thunderbird
     qtcreator
-    sage
+    # sage
     obsidian
     texliveFull
     texstudio
