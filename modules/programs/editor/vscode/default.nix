@@ -47,6 +47,7 @@
               "theqtcompany.qt-cpp"
               "theqtcompany.qt-ui"
               "theqtcompany.qt-qml"
+              "cschlosser.doxdocgen"
             ];
           keybindings = [
             {
@@ -152,6 +153,10 @@
             };
 
             "cmake.showNotAllDocumentsSavedQuestion" = false;
+
+            "doxdocgen.generic.authorEmail" = "demmax0512@gmail.com";
+            "doxdocgen.generic.authorName" = "KenSinKan";
+            "doxdocgen.generic.dateFormat" = "DD-MM-YYYY";
 
             "vim.leader" = "<Space>";
             "vim.useCtrlKeys" = true;

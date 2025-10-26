@@ -18,12 +18,12 @@
   environment.systemPackages = with pkgs; [
     lutris
     heroic
-    # bottles
+    bottles
     # ryujinx
     prismlauncher
 
     steam-run
-    wineWowPackages.staging
+    protonup-qt
   ];
   programs = {
     gamemode.enable = true;
