@@ -37,6 +37,9 @@
               ms-vscode.cmake-tools
               mhutchie.git-graph
               ms-python.python
+              detachhead.basedpyright
+              ms-python.black-formatter
+              charliermarsh.ruff
               visualjj.visualjj
             ]
             ++ pkgs.nix4vscode.forVscode [
@@ -143,6 +146,10 @@
 
             "nix.enableLanguageServer" = true;
             "nix.serverPath" = "nixd";
+
+            "[python]" = {
+              "editor.defaultFormatter" = "charliermarsh.ruff";
+            };
 
             "cmake.showNotAllDocumentsSavedQuestion" = false;
 
