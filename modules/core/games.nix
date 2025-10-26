@@ -20,7 +20,7 @@
     heroic
     # bottles
     # ryujinx
-    # prismlauncher
+    prismlauncher
 
     steam-run
     wineWowPackages.staging
@@ -58,6 +58,7 @@
           fps_limit = [
             60
             0
+            120
             144
             165
             240
