@@ -10,10 +10,10 @@ CURRENT=$(cat "$MODE_FILE")
 
 if [[ "$CURRENT" == "performance" ]]; then
     NEW_MODE="powersave"
-    CMD="pkexec tlp bat"
+    CMD="sudo tlp bat"
 else
     NEW_MODE="performance"
-    CMD="pkexec tlp ac"
+    CMD="sudo tlp ac"
 fi
 
 if $CMD > /dev/null 2>&1; then
