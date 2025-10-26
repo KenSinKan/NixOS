@@ -15,6 +15,8 @@ in
   "zen.watermark.enabled" = false;
   "zen.welcome-screen.seen" = true;
 
+  "extensions.autoDisableScopes" = 0;
+
   # enable custom userchrome
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   "svg.context-properties.content.enabled" = true;
@@ -194,10 +196,10 @@ in
   "extensions.webcompat.perform_injections" = true;
   "extensions.webcompat.perform_ua_overrides" = true;
 
-  "extensions.autoDisableScopes" = {
-    Value = 0;
-    Status = "locked";
-  };
+  # "extensions.autoDisableScopes" = {
+  #   Value = 0;
+  #   Status = "locked";
+  # };
   "extensions.enabledScopes" = {
     Value = 15;
     Status = "locked";

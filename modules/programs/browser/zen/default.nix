@@ -8,7 +8,10 @@
   # environment.systemPackages = with pkgs; [inputs.zen-browser.packages.${system}.default];
   home-manager.sharedModules = [
     (_: {
-      imports = [ inputs.zen-browser.homeModules.beta ];
+      imports = [
+        inputs.zen-browser.homeModules.beta
+        inputs.nur.modules.homeManager.default
+      ];
 
       programs.zen-browser = {
         enable = true;
