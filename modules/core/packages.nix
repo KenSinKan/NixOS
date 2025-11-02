@@ -90,7 +90,7 @@
 
     p7zip
     ayugram-desktop
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     vlc
     qbittorrent
     bitwarden-desktop

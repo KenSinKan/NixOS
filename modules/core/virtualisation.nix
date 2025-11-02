@@ -75,7 +75,7 @@
     spice-gtk
     spice-protocol
     spice-vdagent
-    win-virtio
+    virtio-win
     win-spice
 
     lazydocker
