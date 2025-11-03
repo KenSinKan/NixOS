@@ -8,7 +8,7 @@
       enable = true;
     };
 
-    podman.enable = false;
+    podman.enable = true;
 
     libvirtd = {
       enable = true;
