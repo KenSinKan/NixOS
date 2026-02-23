@@ -106,6 +106,7 @@
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
       nixosConfigurations = {
         Default = mkHost "Default";
+        Lenovo-16AHP9 = mkHost "Lenovo-16AHP9";
       };
     };
 }

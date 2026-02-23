@@ -71,5 +71,7 @@
     # devenv
     # devbox
     # shellify
+
+    obsidian
   ];
 }
