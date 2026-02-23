@@ -15,7 +15,7 @@
     };
     nix-doom-emacs-unstraightened = {
       url = "github:marienz/nix-doom-emacs-unstraightened";
-      inputs.nixpkgs.follows = ""; # Doesn't use nixpkgs
+      # inputs.nixpkgs.follows = ""; # Doesn't use nixpkgs
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
