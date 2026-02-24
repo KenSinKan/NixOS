@@ -13,31 +13,42 @@
         # package = pkgs.vscodium;
         package = pkgs.vscode;
         profiles.default = {
+          # packages = with pkgs; [ jujutsu nixd ];
+          enableUpdateCheck = false;
+          enableExtensionUpdateCheck = false;
           extensions = with pkgs.vscode-extensions; [
-            bbenoist.nix
-            arrterian.nix-env-selector
-            eamodio.gitlens
-            github.vscode-github-actions
-            yzhang.markdown-all-in-one
-            catppuccin.catppuccin-vsc
-            catppuccin.catppuccin-vsc-icons
-            # asvetliakov.vscode-neovim
-            # vscodevim.vim
-            # tamasfe.even-better-toml
             jnoortheen.nix-ide
-            # redhat.vscode-yaml
-            # vadimcn.vscode-lldb
-            # rust-lang.rust-analyzer
-            # ms-vscode.cpptools
-            # ms-vscode.cmake-tools
-            # ms-vscode.makefile-tools
-            # ziglang.vscode-zig
-            # ms-dotnettools.csharp
-            # ms-python.python
-            # pkief.material-icon-theme
-            # equinusocio.vsc-material-theme
-            # dracula-theme.theme-dracula
-          ];
+              # bbenoist.nix
+              # arrterian.nix-env-selector
+              mkhl.direnv
+              divyanshuagrawal.competitive-programming-helper
+              eamodio.gitlens
+              github.vscode-github-actions
+              yzhang.markdown-all-in-one
+              catppuccin.catppuccin-vsc
+              catppuccin.catppuccin-vsc-icons
+              # asvetliakov.vscode-neovim
+              # vscodevim.vim
+              tamasfe.even-better-toml
+              redhat.vscode-yaml
+              vadimcn.vscode-lldb
+              rust-lang.rust-analyzer
+              # ms-vscode.cpptools
+              llvm-vs-code-extensions.vscode-clangd
+              ms-vscode.cmake-tools
+              mhutchie.git-graph
+              ms-python.python
+              detachhead.basedpyright
+              charliermarsh.ruff
+              visualjj.visualjj
+              mesonbuild.mesonbuild
+          ]
+          ++ pkgs.nix4vscode.forVscode [
+              # "theqtcompany.qt-core"
+              # "theqtcompany.qt-cpp"
+              # "theqtcompany.qt-ui"
+              # "theqtcompany.qt-qml"
+            ];
           keybindings = [
             {
               key = "ctrl+q";
@@ -55,7 +66,7 @@
             "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
             "window.menuBarVisibility" = "classic";
             # "window.zoomLevel" = 0.5;
-            "editor.fontSize" = 11;
+            "editor.fontSize" = 14;
             "workbench.colorTheme" = "Catppuccin Mocha";
             "workbench.iconTheme" = "catppuccin-mocha";
             "catppuccin.accentColor" = "mauve";
@@ -65,6 +76,7 @@
             "workbench.startupEditor" = "none";
             "telemetry.enableCrashReporter" = false;
             "telemetry.enableTelemetry" = false;
+            "editor.tabSize" = 2;
 
             "security.workspace.trust.untrustedFiles" = "open";
 
@@ -108,30 +120,57 @@
 
             "editor.mouseWheelZoom" = true;
 
+            "C_Cpp.intelliSenseEngine" = "disabled";
             "C_Cpp.autocompleteAddParentheses" = true;
-            "C_Cpp.formatting" = "vcFormat";
-            "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyFunction" = true;
-            "C_Cpp.vcFormat.newLine.closeBraceSameLine.emptyType" = true;
-            "C_Cpp.vcFormat.space.beforeEmptySquareBrackets" = true;
-            "C_Cpp.vcFormat.newLine.beforeOpenBrace.block" = "sameLine";
-            "C_Cpp.vcFormat.newLine.beforeOpenBrace.function" = "sameLine";
-            "C_Cpp.vcFormat.newLine.beforeElse" = false;
-            "C_Cpp.vcFormat.newLine.beforeCatch" = false;
-            "C_Cpp.vcFormat.newLine.beforeOpenBrace.type" = "sameLine";
-            "C_Cpp.vcFormat.space.betweenEmptyBraces" = true;
-            "C_Cpp.vcFormat.space.betweenEmptyLambdaBrackets" = true;
-            "C_Cpp.vcFormat.indent.caseLabels" = true;
+            "C_Cpp.formatting" = "clangFormat";
             "C_Cpp.intelliSenseCacheSize" = 2048;
             "C_Cpp.intelliSenseMemoryLimit" = 2048;
             "C_Cpp.default.browse.path" = [
               ''''${workspaceFolder}/**''
             ];
-            "C_Cpp.default.cStandard" = "gnu11";
+            "C_Cpp.default.cppStandard" = "c++23";
+            "C_Cpp.default.cStandard" = "c23";
             "C_Cpp.inlayHints.parameterNames.hideLeadingUnderscores" = false;
             "C_Cpp.intelliSenseUpdateDelay" = 500;
             "C_Cpp.workspaceParsingPriority" = "medium";
             "C_Cpp.clang_format_sortIncludes" = true;
             "C_Cpp.doxygen.generatedStyle" = "/**";
+
+            "direnv.path.executable" = "direnv";
+            "direnv.restart.automatic" = true;
+            "direnv.status.showChangesCount" = true;
+            "direnv.watchForChanges" = true;
+
+            "nix.enableLanguageServer" = true;
+            "nix.serverPath" = "nixd";
+
+            "[python]" = {
+              "editor.defaultFormatter" = "charliermarsh.ruff";
+            };
+
+            "cmake.showNotAllDocumentsSavedQuestion" = false;
+            "cmake.parseBuildDiagnostics" = false;
+
+            "cph.general.defaultLanguage" = "cpp";
+            "cph.general.menuChoices" = "cpp python rust";
+            "cph.general.useShortAtCoderName" = true;
+            "cph.general.useShortCodeForcesName" = true;
+            "cph.general.useShortLuoguName" = true;
+
+            "cph.language.c.Command" = "clang";
+            "cph.language.c.Args" = "-Wall -Wextra -Wshadow -g -fsanitize=address,undefined";
+
+            "cph.language.cpp.Command" = "clang++";
+            "cph.language.cpp.Args" =
+              "-Wall -Wextra -Wshadow -g -fsanitize=address,undefined -std=c++23 -DLOCAL";
+            "cph.language.cpp.SubmissionCompiler" = "GNU G++23 14.2 (64 bit, msys2)";
+            "cph.general.ignoreSTDERROR" = true;
+
+            "mesonbuild.downloadLanguageServer" = false;
+
+            "doxdocgen.generic.authorEmail" = "demmax0512@gmail.com";
+            "doxdocgen.generic.authorName" = "KenSinKan";
+            "doxdocgen.generic.dateFormat" = "DD-MM-YYYY";
 
             "vim.leader" = "<Space>";
             "vim.useCtrlKeys" = true;
