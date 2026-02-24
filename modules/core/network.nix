@@ -4,6 +4,8 @@ let
   inherit (import ../../hosts/${host}/variables.nix) hostname;
 in
 {
+
+  programs.amnezia-vpn.enable = true;
   networking = {
     hostName = "${hostname}";
     networkmanager.enable = true;
