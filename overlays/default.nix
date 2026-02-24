@@ -28,4 +28,6 @@ in
       enableAutoscroll = true;
     };
   };
+
+  nix4vscode = inputs.nix4vscode.overlays.forVscode;
 }
