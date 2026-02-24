@@ -20,7 +20,7 @@
     heroic
     bottles
     # ryujinx
-    # prismlauncher
+    prismlauncher
 
     steam-run
     wineWow64Packages.staging
@@ -69,8 +69,9 @@
         settings = {
           no_display = true; # Hide hud by default (Show by holding right-shift then press F12)
           fps_limit = [
-            60
+            120
             0
+            60
             144
             165
             240
