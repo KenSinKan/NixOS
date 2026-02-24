@@ -28,7 +28,6 @@
     fd # Better Find
     git # Git
     zoxide # Fast directory jumping (z/cd replacement)
-    gh # Github Authentication Client
     libjxl # Support for JXL Images
     microfetch # Small fetch (Blazingly fast)
     nix-prefetch-scripts # Find Hashes/Revisions of Nix Packages
@@ -51,7 +50,7 @@
     # lshw # Detailed Hardware Information
     # mpv # Incredible Video Player
     # ncdu # Disk Usage Analyzer With Ncurses Interface
-    # nixfmt-rfc-style # Nix Formatter
+    nixfmt # Nix Formatter
     # nwg-displays # configure monitor configs via GUI
     # onefetch # provides zsaneyos build info on current system
     # pavucontrol # For Editing Audio Levels & Devices
@@ -68,10 +67,22 @@
     # wget # Tool For Fetching Files With Links
     # ytmdl # Tool For Downloading Audio From YouTube
 
-    # devenv
+    devenv
     # devbox
     # shellify
 
     obsidian
+    ayugram-desktop
+    onlyoffice-desktopeditors
+    vlc
+    bitwarden-desktop
+    krita
+    hoppscotch
+    sage
+    texliveFull
+    texstudio
+    dbeaver-bin
+    jujutsu
+    jjui
   ];
 }
