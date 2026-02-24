@@ -33,7 +33,7 @@ in
     xkb = {
       layout = "${kbdLayout}";
       variant = "${kbdVariant}";
-      options = "caps:swapescape";
+      options = "caps:swapescape,grp:alt_shift_toggle";
     };
   };
   nix = {
