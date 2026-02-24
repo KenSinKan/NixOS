@@ -31,6 +31,7 @@ in
     xkb = {
       layout = "${kbdLayout}";
       variant = "${kbdVariant}";
+      options = "grp:alt_shift_toggle";
     };
   };
   nix = {

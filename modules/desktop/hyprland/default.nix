@@ -169,15 +169,16 @@ in
               "polkit-agent-helper-1"
             ];
             input = {
-              kb_layout = "${kbdLayout},ru";
-              kb_variant = "${kbdVariant},";
+              kb_layout = "${kbdLayout}";
+              kb_variant = "${kbdVariant}";
+              kb_options = "grp:alt_shift_toggle";
               repeat_delay = 275; # or 212
               repeat_rate = 35;
               numlock_by_default = true;
 
               follow_mouse = 1;
 
-              touchpad.natural_scroll = false;
+              touchpad.natural_scroll = true;
 
               tablet.output = "current";
 
