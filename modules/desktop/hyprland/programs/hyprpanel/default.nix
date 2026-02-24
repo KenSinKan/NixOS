@@ -16,6 +16,7 @@ in
     brightnessctl
     wf-recorder
   ];
+  services.upower.enable = true;
   home-manager.sharedModules = [
     (_: {
       programs.hyprpanel = {
@@ -160,7 +161,7 @@ in
               weather = {
                 enabled = false;
                 unit = "metric";
-                location = "London";
+                location = "Moscow";
               };
             };
             dashboard = {
