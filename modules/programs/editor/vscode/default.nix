@@ -163,11 +163,10 @@
             "cph.general.useShortLuoguName" = true;
 
             "cph.language.c.Command" = "clang";
-            "cph.language.c.Args" = "-Wall -Wextra -Wshadow -g -fsanitize=address,undefined";
+            "cph.language.c.Args" = "-Wall -Wextra -Wshadow -O2";
 
             "cph.language.cpp.Command" = "clang++";
-            "cph.language.cpp.Args" =
-              "-Wall -Wextra -Wshadow -g -fsanitize=address,undefined -std=c++23 -DLOCAL";
+            "cph.language.cpp.Args" = "-Wall -Wextra -Wshadow -O2 -std=c++23";
             "cph.language.cpp.SubmissionCompiler" = "GNU G++23 14.2 (64 bit, msys2)";
             "cph.general.ignoreSTDERROR" = true;
 
@@ -175,7 +174,7 @@
 
             "doxdocgen.generic.authorEmail" = "demmax0512@gmail.com";
             "doxdocgen.generic.authorName" = "KenSinKan";
-            "doxdocgen.generic.dateFormat" = "DD-MM-YYYY";
+            "doxdocgen.generic.dateFormat" = "YYYY-MM-DD";
 
             "vim.leader" = "<Space>";
             "vim.useCtrlKeys" = true;
