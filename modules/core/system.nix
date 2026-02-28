@@ -37,7 +37,10 @@ in
   nix = {
     # Nix Package Manager Settings
     settings = {
-      trusted-users = [ "root" "@wheel" ]; # Required by Cachix to be used as non-root user
+      trusted-users = [
+        "root"
+        "@wheel"
+      ]; # Required by Cachix to be used as non-root user
       accept-flake-config = true;
       builders-use-substitutes = true;
       download-buffer-size = 200000000;
