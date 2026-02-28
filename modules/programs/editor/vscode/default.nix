@@ -67,6 +67,7 @@
             "window.menuBarVisibility" = "classic";
             # "window.zoomLevel" = 0.5;
             "editor.fontSize" = 14;
+            "terminal.integrated.shellIntegration.enabled" = false;
             "workbench.colorTheme" = "Catppuccin Mocha";
             "workbench.iconTheme" = "catppuccin-mocha";
             "catppuccin.accentColor" = "mauve";
@@ -76,7 +77,9 @@
             "workbench.startupEditor" = "none";
             "telemetry.enableCrashReporter" = false;
             "telemetry.enableTelemetry" = false;
+            "telemetry.telemetryLevel" = "off";
             "editor.tabSize" = 2;
+            "files.autoSave" = "onFocusChange";
 
             "security.workspace.trust.untrustedFiles" = "open";
 
