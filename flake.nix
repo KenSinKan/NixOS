@@ -106,10 +106,28 @@
               ;
           };
         };
+      devShellPackages =
+        pkgs: with pkgs; [
+          nixd
+          cachix
+          nixfmt-tree
+          statix
+        ];
     in
     {
       templates = import ./dev-shells;
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShellNoCC {
+            packages = devShellPackages pkgs;
+          };
+        }
+      );
       nixosConfigurations = {
         Default = mkHost "Default";
         Lenovo-16AHP9 = mkHost "Lenovo-16AHP9";
