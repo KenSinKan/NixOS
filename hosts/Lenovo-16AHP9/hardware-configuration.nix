@@ -84,6 +84,10 @@
   services.power-profiles-daemon.enable = true;
   boot.kernelParams = [ "amd_pstate=active" ];
 
+  systemd.tmpfiles.rules = [
+    "f /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode 0664 root wheel - 1"
+  ];
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

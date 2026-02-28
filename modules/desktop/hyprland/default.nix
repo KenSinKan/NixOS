@@ -415,6 +415,7 @@ in
               # Night Mode (lower value means warmer temp)
               "$mainMod, F9, exec, ${getExe pkgs.hyprsunset} --temperature 2500" # good values: 3500, 3000, 2500
               "$mainMod, F10, exec, pkill hyprsunset"
+              "$mainMod, B, exec, toggle-battery"
 
               # Window/Session actions
               "$mainMod, Q, killactive"
