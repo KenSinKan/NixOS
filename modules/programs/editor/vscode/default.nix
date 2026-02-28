@@ -16,8 +16,10 @@
           # packages = with pkgs; [ jujutsu nixd ];
           enableUpdateCheck = false;
           enableExtensionUpdateCheck = false;
-          extensions = with pkgs.vscode-extensions; [
-            jnoortheen.nix-ide
+          extensions =
+            with pkgs.vscode-extensions;
+            [
+              jnoortheen.nix-ide
               # bbenoist.nix
               # arrterian.nix-env-selector
               mkhl.direnv
@@ -42,8 +44,8 @@
               charliermarsh.ruff
               visualjj.visualjj
               mesonbuild.mesonbuild
-          ]
-          ++ pkgs.nix4vscode.forVscode [
+            ]
+            ++ pkgs.nix4vscode.forVscode [
               # "theqtcompany.qt-core"
               # "theqtcompany.qt-cpp"
               # "theqtcompany.qt-ui"
@@ -129,7 +131,7 @@
             "C_Cpp.intelliSenseCacheSize" = 2048;
             "C_Cpp.intelliSenseMemoryLimit" = 2048;
             "C_Cpp.default.browse.path" = [
-              ''''${workspaceFolder}/**''
+              "\${workspaceFolder}/**"
             ];
             "C_Cpp.default.cppStandard" = "c++23";
             "C_Cpp.default.cStandard" = "c23";
