@@ -38,11 +38,14 @@
       options = [ "subvol=@home" "compress=zstd:3" ];
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F73B-1188";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/83D5-2B4C";
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
+  };
 
   swapDevices = [ ];
 
