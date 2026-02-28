@@ -6,13 +6,78 @@
 {
   home-manager.sharedModules = [
     (_: {
+      home.file.".config/helix/snippets.toml".text = ''
+        [[snippets]]
+        scope = ["cpp"]
+        prefix = "cfcph"
+        body = """
+        #include <bits/stdc++.h>
+
+        using namespace std;
+
+        #define all(x) x.begin(), x.end()
+        #define endl '\n'
+
+        using ll = long long;
+
+        [[maybe_unused]] struct {
+          template <class T> operator T() const { return numeric_limits<T>::max() / 2; }
+
+          struct NegInF {
+            template <class U> operator U() const {
+              return numeric_limits<U>::min() / 2;
+            }
+          };
+          NegInF operator-() const { return {}; }
+        } const InF;
+        [[maybe_unused]] constexpr ll MOD = 1e9 + 7;
+
+        template <class T, class U> istream &operator>>(istream &is, pair<T, U> &p) {
+          return is >> p.first >> p.second;
+        }
+        template <class T> istream &operator>>(istream &is, vector<T> &v) {
+          for (T &x : v)
+            is >> x;
+          return is;
+        }
+
+        #ifdef LOCAL
+        #include <iostream>
+        #include <print>
+
+        #define debug(...) std::println(std::cerr, __VA_ARGS__)
+        #define dbg(x) std::println(std::cerr, "{} = {}", #x, x)
+
+        #else
+        #define debug(...)
+        #define dbg(x)
+        #endif
+
+        void solve() {
+          $0
+        }
+
+        int main() {
+          int tt = 1;
+          // ''${1:cin >> tt;}
+          while (tt--) {
+            solve();
+          }
+          return 0;
+        }
+        """
+      '';
       programs.helix = {
         enable = true;
+        extraPackages = [
+          pkgs.nixd
+          pkgs.simple-completion-language-server
+        ];
         settings = {
           theme = "catppuccin_mocha";
           editor = {
             auto-completion = true;
-            smart-tab.enable = false;
+            smart-tab.enable = true;
             line-number = "relative";
             indent-guides.render = true;
             true-color = true;
@@ -107,6 +172,9 @@
             #     };
             #   };
             # };
+            scls = {
+              command = "${pkgs.simple-completion-language-server}/bin/simple-completion-language-server";
+            };
             nixd = {
               command = "nixd";
               args = [ ];
@@ -145,6 +213,13 @@
               ];
               formatter.command = "alejandra";
               auto-format = true;
+            }
+            {
+              name = "cpp";
+              language-servers = [
+                "clangd"
+                "scls"
+              ];
             }
           ];
 
