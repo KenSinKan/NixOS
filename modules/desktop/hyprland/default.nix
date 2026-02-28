@@ -27,6 +27,7 @@ let
   keybinds-yad = pkgs.callPackage ./scripts/keybinds-yad.nix { };
   # keybinds-rofi = pkgs.callPackage ./scripts/keybinds-yad.nix { };
   # mediactrl = pkgs.callPackage ./scripts/mediactrl.nix { };
+  toggleBattery = import ./scripts/togglebattery.nix { inherit pkgs; };
   rofimusic = pkgs.callPackage ./scripts/rofimusic.nix { };
   screen-record = pkgs.callPackage ./scripts/screen-record.nix { };
   screenshot = pkgs.callPackage ./scripts/screenshot.nix { };
@@ -58,6 +59,7 @@ in
     swappy
     cliphist
     wl-clipboard
+    toggleBattery
   ];
 
   systemd.user.services.hyprpolkitagent = {
@@ -423,6 +425,7 @@ in
               # Night Mode (lower value means warmer temp)
               "$mainMod, F9, exec, ${getExe pkgs.hyprsunset} --temperature 3500" # good values: 3500, 3000, 2500
               "$mainMod, F10, exec, pkill hyprsunset"
+              "$mainMod, B, exec, toggle-battery"
 
               # Window/Session actions
               "$mainMod, Q, killactive"
