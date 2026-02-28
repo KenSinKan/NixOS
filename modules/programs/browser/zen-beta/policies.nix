@@ -118,6 +118,31 @@
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/frankerfacez/latest.xpi";
     };
+    # Competitive Companion
+    "{74e326aa-c645-4495-9287-b6febc5565a7}" = {
+      private_browsing = true;
+      default_area = "navbar";
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/competitive-companion/latest.xpi";
+    };
+    # CPH-Submit
+    "{5dd8fd6e-0733-41a7-abc4-e19fba703de9}" = {
+      private_browsing = true;
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/cph-submit/latest.xpi";
+    };
+    # Indie Wiki Buddy
+    "{cb31ec5d-c49a-4e5a-b240-16c767444f62}" = {
+      private_browsing = true;
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/indie-wiki-buddy/latest.xpi";
+    };
+    # Bitwarden
+    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+      private_browsing = true;
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+    };
     # View Xpi Id's in Firefox Extension Store
     "queryamoid@kaply.com" = {
       private_browsing = true;
