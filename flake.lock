@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "amnezia-pr": {
+      "locked": {
+        "lastModified": 1772269203,
+        "narHash": "sha256-xKhRDDZEyqpQwwYtZ5zXmPXFo7Zs/0Oze5tezW5wn+Q=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d2fc6631210277dbefad39a2bf2e1d875a3c9c7d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/488067/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "betterfox": {
       "flake": false,
       "locked": {
@@ -627,6 +643,7 @@
     },
     "root": {
       "inputs": {
+        "amnezia-pr": "amnezia-pr",
         "betterfox": "betterfox",
         "crossmacro": "crossmacro",
         "doom-config": "doom-config",

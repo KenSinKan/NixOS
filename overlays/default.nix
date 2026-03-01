@@ -27,6 +27,11 @@ in
       withOpenASAR = true;
       enableAutoscroll = true;
     };
+    amnezia-vpn =
+      (import inputs.amnezia-pr {
+        system = prev.stdenv.hostPlatform.system;
+        config = prev.config or { };
+      }).amnezia-vpn;
   };
 
   nix4vscode = inputs.nix4vscode.overlays.forVscode;
