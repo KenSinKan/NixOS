@@ -171,6 +171,8 @@
             "cph.general.ignoreSTDERROR" = true;
 
             "mesonbuild.downloadLanguageServer" = false;
+            "mesonbuild.buildFolder" = "build";
+            "mesonbuild.formatting.enabled" = true;
 
             "doxdocgen.generic.authorEmail" = "demmax0512@gmail.com";
             "doxdocgen.generic.authorName" = "KenSinKan";
