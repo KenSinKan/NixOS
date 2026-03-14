@@ -1093,7 +1093,6 @@
     },
     "root": {
       "inputs": {
-        "amnezia-pr": "amnezia-pr",
         "betterfox": "betterfox",
         "caelestia-shell": "caelestia-shell",
         "crossmacro": "crossmacro",
