@@ -84,5 +84,6 @@
     dbeaver-bin
     jujutsu
     jjui
+    gemini-cli-bin
   ];
 }
