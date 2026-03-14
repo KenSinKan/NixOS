@@ -44,7 +44,7 @@ in
     ../../modules/programs/cli/cava
     # ../../modules/programs/cli/fastfetch
     ../../modules/programs/cli/btop
-    ../../modules/programs/media/discord
+    # ../../modules/programs/media/discord
     ../../modules/programs/media/spicetify
     # ../../modules/programs/media/youtube-music
     # ../../modules/programs/media/thunderbird
