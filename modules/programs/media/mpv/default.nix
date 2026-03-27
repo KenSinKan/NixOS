@@ -7,7 +7,8 @@
         programs.mpv = {
           enable = true;
           scripts = with pkgs.mpvScripts; [
-            thumbnail
+            thumbfast
+            uosc
             mpris
           ];
           bindings = rec {
@@ -64,8 +65,7 @@
             q = "quit";
             Q = "quit-watch-later";
             "q {encode}" = "quit 4";
-            p = "cycle pause";
-            SPACE = p;
+            SPACE = "cycle pause";
             f = "cycle fullscreen";
 
             n = "playlist-next";
@@ -83,9 +83,7 @@
 
             "1" = "add volume -1";
             "2" = "add volume 1";
-            s = "cycle sub";
             v = "cycle video";
-            a = "cycle audio";
             S = ''cycle-values sub-ass-override "force" "no"'';
             PRINT = "screenshot";
             c = "add panscan 0.1";
@@ -100,14 +98,24 @@
             "CLOSE_WIN {encode}" = "quit 4";
             "Ctrl+w" = ''set hwdec "no"'';
             # T = "script-binding generate-thumbnails";
+            m = "script-binding uosc/menu";
+            s = "script-binding uosc/subtitles";
+            a = "script-binding uosc/audio";
+            p = "script-binding uosc/playlist";
+            "TAB" = "script-binding uosc/toggle-ui";
           };
           config = {
+            hwdec = "auto-safe";
+            vo = "gpu-next";
+            gpu-api = "vulkan";
             osc = "no";
+            osd-bar = "no";
+            border = "no";
             resume-playback-check-mtime = true;
             # ao = "alsa";
             audio-file-auto = "fuzzy";
             sub-auto = "fuzzy";
-            # gpu-context = "waylandvk";
+            gpu-context = "waylandvk";
             wayland-edge-pixels-pointer = 0;
             wayland-edge-pixels-touch = 0;
             screenshot-format = "webp";
@@ -116,6 +124,8 @@
             screenshot-sw = true;
             # cache-dir = "${config.xdg.cacheHome}/mpv";
             input-default-bindings = false;
+            video-sync = "display-resample";
+            hr-seek = "yes";
           };
         };
       }
