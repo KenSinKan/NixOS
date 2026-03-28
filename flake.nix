@@ -73,6 +73,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     crossmacro.url = "github:alper-han/CrossMacro";
+    amnezia-pr.url = "github:NixOS/nixpkgs/pull/500661/head";
   };
 
   outputs =

@@ -27,6 +27,7 @@ in
       withOpenASAR = true;
       enableAutoscroll = true;
     };
+    amnezia-vpn = final.callPackage "${inputs.amnezia-pr}/pkgs/by-name/am/amnezia-vpn/package.nix" { };
   };
 
   nix4vscode = inputs.nix4vscode.overlays.forVscode;
