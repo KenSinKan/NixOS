@@ -29,6 +29,7 @@
               yzhang.markdown-all-in-one
               catppuccin.catppuccin-vsc
               catppuccin.catppuccin-vsc-icons
+              haskell.haskell
               # asvetliakov.vscode-neovim
               # vscodevim.vim
               tamasfe.even-better-toml
@@ -46,10 +47,10 @@
               mesonbuild.mesonbuild
             ]
             ++ pkgs.nix4vscode.forVscode [
-              # "theqtcompany.qt-core"
-              # "theqtcompany.qt-cpp"
-              # "theqtcompany.qt-ui"
-              # "theqtcompany.qt-qml"
+              "theqtcompany.qt-core"
+              "theqtcompany.qt-cpp"
+              "theqtcompany.qt-ui"
+              "theqtcompany.qt-qml"
             ];
           keybindings = [
             {
