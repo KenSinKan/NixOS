@@ -15,6 +15,7 @@
     enable = true;
     enable32Bit = true;
   };
+  boot.initrd.availableKernelModules = [ "ntsync" ];
   environment.systemPackages = with pkgs; [
     lutris
     heroic
@@ -23,7 +24,6 @@
     prismlauncher
 
     steam-run
-    wineWow64Packages.staging
     gamescope
   ];
   programs = {
