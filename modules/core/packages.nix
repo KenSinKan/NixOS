@@ -84,6 +84,7 @@
     dbeaver-bin
     jujutsu
     jjui
+    qbittorrent
     gemini-cli-bin
   ];
 }
