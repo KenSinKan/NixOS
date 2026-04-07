@@ -33,6 +33,8 @@ in
     hyprsunset
     btop
     hyprpicker
+    toggleBattery
+    qt6.qtwayland
   ];
 
   systemd.user.services.hyprpolkitagent = {
@@ -383,6 +385,7 @@ in
               "float on, match:class ^(nm-applet)$"
               "float on, match:class ^(nm-connection-editor)$"
               "float on, match:class ^(org.kde.polkit-kde-authentication-agent-1)$"
+              "no_initial_focus on, match:class ^(io.qt.qtdesignstudio)$"
             ];
             binde = [
               # Resize windows

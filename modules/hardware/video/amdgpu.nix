@@ -9,4 +9,5 @@
   hardware.amdgpu = {
     opencl.enable = true;
   };
+  boot.initrd.kernelModules = [ "amdgpu" ];
 }

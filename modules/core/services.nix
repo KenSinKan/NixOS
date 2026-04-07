@@ -1,4 +1,4 @@
-{ ... }:
+{ config, pkgs, ... }:
 {
   # Services to start
   services = {
@@ -7,6 +7,21 @@
     devmon.enable = true; # For Mounting USB & More
     gvfs.enable = true; # For Mounting USB & More
     udisks2.enable = true; # For Mounting USB & More
+    postgresql = {
+      enable = true;
+      enableTCPIP = true;
+      ensureUsers = [
+        {
+          name = "maksim";
+        }
+      ];
+      # ensureDatabases = [ "mydatabase" ];
+      authentication = pkgs.lib.mkOverride 10 ''
+        #type database  DBuser  auth-method
+        local all       all     trust
+        host  all       all     127.0.0.1/32 trust
+      '';
+    };
 
     # Userspace CPU Scheduler for Improved Latency for Gaming (Hardware Specific)
     # services.scx = {

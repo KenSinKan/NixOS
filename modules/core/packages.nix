@@ -86,5 +86,8 @@
     jjui
     qbittorrent
     gemini-cli-bin
+    qwen-code
+    qtcreator
+    nodejs
   ];
 }

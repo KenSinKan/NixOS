@@ -81,8 +81,10 @@
     memoryPercent = 50;
   };
 
+  services.dbus.enable = true;
   services.power-profiles-daemon.enable = true;
-  boot.kernelParams = [ "amd_pstate=active" ];
+  services.tlp.enable = lib.mkForce false;
+  # boot.kernelParams = [ "amd_pstate=active" ];
 
   systemd.tmpfiles.rules = [
     "f /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode 0664 root wheel - 1"

@@ -9,7 +9,7 @@
     (_: {
       programs.vscode = {
         enable = true;
-        mutableExtensionsDir = true;
+        mutableExtensionsDir = false;
         # package = pkgs.vscodium;
         package = pkgs.vscode;
         profiles.default = {
@@ -45,12 +45,16 @@
               charliermarsh.ruff
               visualjj.visualjj
               mesonbuild.mesonbuild
+              tomoki1207.pdf
+              myriad-dreamin.tinymist
             ]
             ++ pkgs.nix4vscode.forVscode [
               "theqtcompany.qt-core"
               "theqtcompany.qt-cpp"
               "theqtcompany.qt-ui"
               "theqtcompany.qt-qml"
+              "google.geminicodeassist"
+              "google.gemini-cli-vscode-ide-companion"
             ];
           keybindings = [
             {
@@ -65,7 +69,8 @@
           ];
           userSettings = {
             "update.mode" = "none";
-            # "extensions.autoUpdate" = false; # Fixes vscode freaking out when theres an update
+            "extensions.autoCheckUpdates" = false;
+            "extensions.autoUpdate" = false; # Fixes vscode freaking out when theres an update
             "window.titleBarStyle" = "custom"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
             "window.menuBarVisibility" = "classic";
             # "window.zoomLevel" = 0.5;
@@ -83,6 +88,7 @@
             "telemetry.telemetryLevel" = "off";
             "editor.tabSize" = 2;
             "files.autoSave" = "onFocusChange";
+            "http.systemCertificatesNode" = true;
 
             "security.workspace.trust.untrustedFiles" = "open";
 

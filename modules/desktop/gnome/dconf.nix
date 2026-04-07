@@ -133,13 +133,15 @@ in
 
           "org/gnome/desktop/input-sources" = {
             show-all-sources = false;
-            sources = [
-              (mkTuple [
+            sources = map (
+              l:
+              lib.hm.gvariant.mkTuple [
                 "xkb"
-                "${kbdLayout}"
-              ])
-            ];
+                l
+              ]
+            ) (lib.strings.splitString "," kbdLayout);
             xkb-options = [
+              "grp:alt_shift_toggle"
               "terminate:ctrl_alt_bksp"
               "custom:types"
             ];
@@ -494,7 +496,7 @@ in
               "Alacritty.desktop"
               "org.gnome.Console.desktop"
             ];
-            last-selected-power-profile = "performance";
+            last-selected-power-profile = "balance";
             welcome-dialog-last-shown-version = "45.4";
           };
 

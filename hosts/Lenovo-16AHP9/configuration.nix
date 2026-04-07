@@ -26,8 +26,8 @@ in
     ../../modules/core/syncthing.nix
     ../../modules/core/system.nix
     ../../modules/core/users.nix
-    # ../../modules/core/flatpak.nix
-    # ../../modules/core/virtualisation.nix
+    ../../modules/core/flatpak.nix
+    ../../modules/core/virtualisation.nix
     # ../../modules/core/dlna.nix
 
     # Optional
@@ -53,6 +53,7 @@ in
     # ../../modules/programs/misc/tlp
     ../../modules/programs/misc/thunar
     ../../modules/programs/misc/lact # GPU fan, clock and power configuration
+    ../../modules/programs/misc/throne
   ]
   ++ lib.optional (vars.games == true) ../../modules/core/games.nix;
 }

@@ -31,6 +31,7 @@ let
     pkgs.kdePackages.qtsvg # Sddm Dependency
     pkgs.kdePackages.qtmultimedia # Sddm Dependency
     pkgs.kdePackages.qtvirtualkeyboard # Sddm Dependency
+    pkgs.bibata-cursors
   ];
 in
 {
@@ -45,6 +46,10 @@ in
       settings.Theme.CursorTheme = "Bibata-Modern-Classic";
       theme = "sddm-astronaut-theme";
     };
+  };
+  systemd.services.display-manager.environment = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    QT_QPA_PLATFORM = "wayland";
   };
 
   environment.systemPackages = sddmDependencies;
