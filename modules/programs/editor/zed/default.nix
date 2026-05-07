@@ -72,7 +72,7 @@
           vim_mode = false;
           node = {
             path = lib.getExe pkgs.nodejs;
-            npm_path = lib.getExe pkgs.nodePackages.npm;
+            npm_path = lib.getExe' pkgs.nodejs "npm";
           };
           dap.CodeLLDB.binary = lib.getExe' pkgs.lldb "lldb-dap";
         };

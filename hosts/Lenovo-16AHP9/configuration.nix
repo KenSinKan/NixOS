@@ -37,7 +37,7 @@ in
     ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
     ../../modules/programs/editor/${vars.editor} # Set editor defined in variables.nix
     ../../modules/programs/editor/zed
-    ../../modules/programs/cli/${vars.tuiFileManager} # Set file-manager defined in variables.nix
+    ../../modules/programs/file-manager/${vars.fileManager} # Set file-manager defined in variables.nix
     ../../modules/programs/cli/tmux
     ../../modules/programs/cli/direnv
     ../../modules/programs/cli/lazygit
@@ -51,7 +51,7 @@ in
     # ../../modules/programs/media/obs-studio
     ../../modules/programs/media/mpv
     ../../modules/programs/misc/tlp
-    ../../modules/programs/misc/thunar
+    ../../modules/programs/file-manager/thunar
     ../../modules/programs/misc/lact # GPU fan, clock and power configuration
     ../../modules/programs/misc/throne
   ]

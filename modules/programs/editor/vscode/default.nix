@@ -44,7 +44,7 @@
               ms-python.python
               detachhead.basedpyright
               charliermarsh.ruff
-              visualjj.visualjj
+              # visualjj.visualjj
               mesonbuild.mesonbuild
               tomoki1207.pdf
               myriad-dreamin.tinymist
@@ -58,6 +58,7 @@
               "google.geminicodeassist"
               "google.gemini-cli-vscode-ide-companion"
               "13xforever.language-x86-64-assembly"
+              "jjk.jjk"
             ];
           keybindings = [
             {
