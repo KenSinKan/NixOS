@@ -11,6 +11,10 @@
         mutableUserSettings = false;
         userSettings = {
           auto_update = false;
+          project_panel.dock = "left";
+          git_panel.dock = "left";
+          collaboration_panel.dock = "left";
+          outline_panel.dock = "left";
           diagnostics.inline.enabled = true;
           agent_servers.gemini.type = "registry";
           disable_ai = true;
