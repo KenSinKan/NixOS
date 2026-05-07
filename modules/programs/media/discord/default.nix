@@ -4,7 +4,7 @@
     (_: {
       home.packages = with pkgs; [
         (discord.override {
-          withVencord = true;
+          # withVencord = true;
         })
       ];
       xdg.configFile."Vencord/themes/catppuccin-mocha.css".text = ''

@@ -13,7 +13,6 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    inputs.nixos-hardware.nixosModules.lenovo-ideapad-16ahp9
   ];
 
   boot.initrd.availableKernelModules = [
@@ -26,10 +25,14 @@
     "nvme"
     "sdhci_pci"
     "dm_crypt"
+    "tun"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "zenpower"
+  ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
 
   fileSystems."/" = {
     device = "/dev/mapper/cryptroot";
@@ -81,10 +84,9 @@
     memoryPercent = 50;
   };
 
-  services.dbus.enable = true;
-  services.power-profiles-daemon.enable = true;
-  services.tlp.enable = lib.mkForce false;
-  # boot.kernelParams = [ "amd_pstate=active" ];
+  powerManagement.enable = true;
+  boot.kernelParams = [ "amd_pstate=active" ];
+  boot.blacklistedKernelModules = [ "k10temp" ];
 
   systemd.tmpfiles.rules = [
     "f /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode 0664 root wheel - 1"

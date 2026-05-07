@@ -30,6 +30,7 @@
               catppuccin.catppuccin-vsc
               catppuccin.catppuccin-vsc-icons
               haskell.haskell
+              justusadam.language-haskell
               # asvetliakov.vscode-neovim
               # vscodevim.vim
               tamasfe.even-better-toml
@@ -47,6 +48,7 @@
               mesonbuild.mesonbuild
               tomoki1207.pdf
               myriad-dreamin.tinymist
+              usernamehw.errorlens
             ]
             ++ pkgs.nix4vscode.forVscode [
               "theqtcompany.qt-core"
@@ -55,6 +57,7 @@
               "theqtcompany.qt-qml"
               "google.geminicodeassist"
               "google.gemini-cli-vscode-ide-companion"
+              "13xforever.language-x86-64-assembly"
             ];
           keybindings = [
             {

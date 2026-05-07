@@ -1,13 +1,81 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home-manager.sharedModules = [
     (_: {
       programs.zed-editor = {
         enable = true;
-        extraPackages = with pkgs; [
-          nixd
-          lldb
+        extensions = [
+          "nix"
+          "toml"
         ];
+        mutableUserSettings = false;
+        userSettings = {
+          auto_update = false;
+          diagnostics.inline.enabled = true;
+          agent_servers.gemini.type = "registry";
+          disable_ai = true;
+          telemetry.diagnostics = false;
+          telemetry.metrics = false;
+          sticky_scroll.enabled = false;
+          minimap.show = "never";
+          scrollbar.axes.horizontal = false;
+          scrollbar.axes.vertical = false;
+          max_tabs = 10;
+          auto_indent_on_paste = true;
+          show_edit_predictions = true;
+          tab_size = 2;
+          base_keymap = "VSCode";
+          autosave = "on_focus_change";
+          buffer_font_size = 14.0;
+          debugger.dock = "right";
+          debugger.log_dap_communications = true;
+          debugger.format_dap_log_messages = true;
+          edit_predictions.mode = "subtle";
+          format_on_save = "on";
+          inlay_hints.enabled = true;
+          inlay_hints.show_other_hints = true;
+          inlay_hints.show_parameter_hints = true;
+          inlay_hints.show_type_hints = true;
+          inlay_hints.show_value_hints = true;
+          journal.hour_format = "hour24";
+          languages."C++" = {
+            auto_indent_on_paste = true;
+            show_edit_predictions = true;
+            tab_size = 2;
+          };
+          languages.Nix.language_servers = [
+            "nixd"
+            "!nil"
+          ];
+          languages.Python = {
+            language_servers = [
+              "ty"
+              "ruff"
+              "!..."
+            ];
+          };
+          lsp = {
+            ruff.binary = {
+              path = lib.getExe pkgs.ruff;
+              arguments = [ "server" ];
+            };
+            ty.binary = {
+              path = lib.getExe pkgs.ty;
+              arguments = [ "server" ];
+            };
+          };
+          load_direnv = "shell_hook";
+          theme.dark = "One Dark";
+          theme.light = "One Light";
+          theme.mode = "dark";
+          ui_font_size = 16;
+          vim_mode = false;
+          node = {
+            path = lib.getExe pkgs.nodejs;
+            npm_path = lib.getExe pkgs.nodePackages.npm;
+          };
+          dap.CodeLLDB.binary = lib.getExe' pkgs.lldb "lldb-dap";
+        };
       };
     })
   ];
