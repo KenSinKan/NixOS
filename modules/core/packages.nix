@@ -88,6 +88,7 @@
     gemini-cli-bin
     qwen-code
     qtcreator
-    nodejs
+    surrealdb
+    surrealist
   ];
 }

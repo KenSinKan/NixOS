@@ -78,13 +78,8 @@
 
   swapDevices = [ ];
 
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 50;
-  };
-
   powerManagement.enable = true;
+  services.tuned.enable = true;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.blacklistedKernelModules = [ "k10temp" ];
 

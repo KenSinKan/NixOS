@@ -5,7 +5,10 @@ let
 in
 {
 
-  programs.amnezia-vpn.enable = true;
+  programs.amnezia-vpn = {
+    enable = true;
+    # package = pkgs.amnezia-vpn-bin;
+  };
   networking = {
     hostName = "${hostname}";
     networkmanager.enable = true;
@@ -32,6 +35,8 @@ in
       "net.ipv6.conf.default.accept_redirects" = 0;
       "net.ipv4.tcp_syncookies" = 1;
       "net.ipv4.tcp_rfc1337" = 1;
+      # "net.ipv4.ip_unprivileged_port_start" = 120;
+      "net.ipv4.ip_unprivileged_port_start" = 80;
 
       # BBR + ECN optimization (Kernel 6.x)
       "net.ipv4.tcp_congestion_control" = "bbr";

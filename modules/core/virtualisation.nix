@@ -3,22 +3,22 @@
   # Only enable either docker or podman -- Not both
   virtualisation = {
     spiceUSBRedirection.enable = true;
-    oci-containers = {
-      backend = "podman";
-      containers = {
-        ms-sql = {
-          image = "mcr.microsoft.com/mssql/server:2025-latest";
-          ports = [ "1433:1433" ];
-          environment = {
-            ACCEPT_EULA = "Y";
-            MSSQL_SA_PASSWORD = "YourStrong@Password123"; # MSSQL требует сложный пароль (минимум 8 символов)
-          };
-          volumes = [
-            "mssql_data:/var/opt/mssql"
-          ];
-        };
-      };
-    };
+    # oci-containers = {
+    # backend = "podman";
+    #   containers = {
+    #     ms-sql = {
+    #       image = "mcr.microsoft.com/mssql/server:2025-latest";
+    #       ports = [ "1433:1433" ];
+    #       environment = {
+    #         ACCEPT_EULA = "Y";
+    #         MSSQL_SA_PASSWORD = "YourStrong@Password123"; # MSSQL требует сложный пароль (минимум 8 символов)
+    #       };
+    #       volumes = [
+    #         "mssql_data:/var/opt/mssql"
+    #       ];
+    # };
+    # };
+    # };
 
     docker = {
       enable = false;

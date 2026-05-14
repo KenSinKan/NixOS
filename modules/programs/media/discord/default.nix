@@ -3,9 +3,7 @@
   home-manager.sharedModules = [
     (_: {
       home.packages = with pkgs; [
-        (discord.override {
-          # withVencord = true;
-        })
+        vesktop
       ];
       xdg.configFile."Vencord/themes/catppuccin-mocha.css".text = ''
         /**
