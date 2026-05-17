@@ -30,19 +30,19 @@ hl.layer_rule({
 
 hl.window_rule({
 	match = { class = "^([Ff]irefox)$" },
-	opacity = "1.00 1.00",
+	opacity = "0.80 0.80",
 })
 hl.window_rule({
 	match = { class = "^([Zz]en(-beta|-browser)?)$" },
-	opacity = "1.00 1.00",
+	opacity = "0.80 0.80",
 })
 hl.window_rule({
 	match = { class = "^([Ff]loorp)$" },
-	opacity = "1.00 1.00",
+	opacity = "0.80 0.80",
 })
 hl.window_rule({
 	match = { class = "^([Bb]rave-browser(-beta|-dev|-unstable)?)$" },
-	opacity = "1.00 1.00",
+	opacity = "0.80 0.80",
 })
 hl.window_rule({
 	match = { class = "^(Emacs)$" },
