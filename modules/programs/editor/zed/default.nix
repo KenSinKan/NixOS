@@ -67,6 +67,8 @@
               path = lib.getExe pkgs.ty;
               arguments = [ "server" ];
             };
+            nixd.binary.path = lib.getExe pkgs.nixd;
+            clangd.binary.path = lib.getExe' pkgs.clang-tools "clangd";
           };
           load_direnv = "shell_hook";
           theme.dark = "One Dark";
