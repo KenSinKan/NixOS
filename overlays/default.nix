@@ -22,10 +22,6 @@ in
       withSystemVencord = false;
       withMiddleClickScroll = true;
     };
-    amnezia-vpn-bin =
-      (import inputs.amnezia-pr {
-        system = final.stdenv.hostPlatform.system;
-      }).amnezia-vpn-bin;
   };
 
   nix4vscode = inputs.nix4vscode.overlays.forVscode;

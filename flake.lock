@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "amnezia-pr": {
-      "locked": {
-        "lastModified": 1778268328,
-        "narHash": "sha256-V0eDCbNy2160lHPlk+/z8kJ0DCD12D/hsY0PoPAmfBw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "228ad73002e357c932aa930dacde00d21a897bce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "pull/517679/head",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "aquamarine": {
       "inputs": {
         "hyprutils": [
@@ -1123,7 +1107,6 @@
     },
     "root": {
       "inputs": {
-        "amnezia-pr": "amnezia-pr",
         "betterfox": "betterfox",
         "caelestia-shell": "caelestia-shell",
         "crossmacro": "crossmacro",
