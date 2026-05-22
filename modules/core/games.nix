@@ -28,7 +28,14 @@
     heroic
     bottles
     # ryujinx
-    prismlauncher
+    (prismlauncher.override {
+      jdks = with pkgs; [
+        graalvmPackages.graalvm-oracle
+        jdk21
+        jdk17
+        jdk8
+      ];
+    })
 
     steam-run
     gamescope
