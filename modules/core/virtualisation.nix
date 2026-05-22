@@ -4,7 +4,7 @@
   virtualisation = {
     spiceUSBRedirection.enable = true;
     # oci-containers = {
-    # backend = "podman";
+    #   backend = "podman";
     #   containers = {
     #     ms-sql = {
     #       image = "mcr.microsoft.com/mssql/server:2025-latest";
@@ -16,8 +16,8 @@
     #       volumes = [
     #         "mssql_data:/var/opt/mssql"
     #       ];
-    # };
-    # };
+    #     };
+    #   };
     # };
 
     docker = {
