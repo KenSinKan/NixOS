@@ -85,9 +85,7 @@
     jujutsu
     jjui
     qbittorrent
-    gemini-cli-bin
-    qwen-code
-    qtcreator
+    opencode
     surrealdb
     surrealist
   ];
