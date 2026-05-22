@@ -82,10 +82,7 @@
   services.tuned.enable = true;
   boot.kernelParams = [ "amd_pstate=active" ];
   boot.blacklistedKernelModules = [ "k10temp" ];
-
-  systemd.tmpfiles.rules = [
-    "f /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode 0664 root wheel - 1"
-  ];
+  hardware.enableAllFirmware = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
