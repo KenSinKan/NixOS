@@ -25,8 +25,8 @@ in
           git_panel.dock = "left";
           collaboration_panel.dock = "left";
           outline_panel.dock = "left";
+          terminal.dock = "bottom";
           diagnostics.inline.enabled = true;
-          agent_servers.gemini.type = "registry";
           disable_ai = true;
           telemetry.diagnostics = false;
           telemetry.metrics = false;
@@ -55,7 +55,6 @@ in
           languages."C++" = {
             auto_indent_on_paste = true;
             show_edit_predictions = true;
-            tab_size = 2;
           };
           languages.Nix.language_servers = [
             "nixd"
@@ -67,6 +66,9 @@ in
               "ruff"
               "!..."
             ];
+          };
+          languages.Rust = {
+            tab_size = 4;
           };
           lsp = {
             ruff.binary = {
