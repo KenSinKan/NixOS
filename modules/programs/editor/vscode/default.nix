@@ -24,8 +24,8 @@
               # arrterian.nix-env-selector
               mkhl.direnv
               divyanshuagrawal.competitive-programming-helper
-              eamodio.gitlens
-              github.vscode-github-actions
+              # eamodio.gitlens
+              # github.vscode-github-actions
               yzhang.markdown-all-in-one
               catppuccin.catppuccin-vsc
               catppuccin.catppuccin-vsc-icons
@@ -40,7 +40,7 @@
               # ms-vscode.cpptools
               llvm-vs-code-extensions.vscode-clangd
               ms-vscode.cmake-tools
-              mhutchie.git-graph
+              # mhutchie.git-graph
               ms-python.python
               detachhead.basedpyright
               charliermarsh.ruff
@@ -55,8 +55,6 @@
               "theqtcompany.qt-cpp"
               "theqtcompany.qt-ui"
               "theqtcompany.qt-qml"
-              "google.geminicodeassist"
-              "google.gemini-cli-vscode-ide-companion"
               "13xforever.language-x86-64-assembly"
               "jjk.jjk"
             ];
@@ -96,6 +94,7 @@
 
             "security.workspace.trust.untrustedFiles" = "open";
 
+            "git.enabled" = false;
             "git.enableSmartCommit" = true;
             "git.autofetch" = true;
             "git.confirmSync" = false;
