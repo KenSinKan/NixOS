@@ -13,6 +13,7 @@
     kernelPackages = pkgs.linuxPackages_latest; # _latest, _zen, _xanmod_latest, _hardened, _rt, _OTHER_CHANNEL, etc.
     kernelParams = [
       "preempt=full" # lower latency but less throughput
+      "transparent_hugepage_shmem=advise"
     ];
     loader = {
       efi.canTouchEfiVariables = true;
