@@ -1,4 +1,14 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+let
+  codelldb-pkg = pkgs.vscode-extensions.vadimcn.vscode-lldb;
+  codelldb-path = "${codelldb-pkg}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+  libcodelldb-path = "${codelldb-pkg}/share/vscode/extensions/vadimcn.vscode-lldb/lldb/lib/libcodelldb.so";
+in
 {
   home-manager.sharedModules = [
     (_: {
@@ -69,6 +79,13 @@
             };
             nixd.binary.path = lib.getExe pkgs.nixd;
             clangd.binary.path = lib.getExe' pkgs.clang-tools "clangd";
+            rust-analyzer = {
+              initialization_options = {
+                lldb = {
+                  libraryPath = libcodelldb-path;
+                };
+              };
+            };
           };
           load_direnv = "shell_hook";
           theme.dark = "One Dark";
@@ -80,7 +97,7 @@
             path = lib.getExe pkgs.nodejs;
             npm_path = lib.getExe' pkgs.nodejs "npm";
           };
-          dap.CodeLLDB.binary = lib.getExe' pkgs.lldb "lldb-dap";
+          dap.CodeLLDB.binary = codelldb-path;
         };
       };
     })
