@@ -17,6 +17,7 @@ in
         extensions = [
           "nix"
           "toml"
+          "typst"
         ];
         mutableUserSettings = false;
         userSettings = {
@@ -83,6 +84,7 @@ in
             clangd.binary.path = lib.getExe' pkgs.clang-tools "clangd";
             package-version-server.binary.path = lib.getExe pkgs.package-version-server;
             rust-analyzer.initialization_options.lldb.libraryPath = libcodelldb-path;
+            tinymist.binary.path = lib.getExe pkgs.tinymist;
           };
           load_direnv = "shell_hook";
           theme.dark = "One Dark";
