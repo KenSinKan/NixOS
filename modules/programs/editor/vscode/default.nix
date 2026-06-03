@@ -51,11 +51,7 @@
               usernamehw.errorlens
             ]
             ++ pkgs.nix4vscode.forVscode [
-              "theqtcompany.qt-core"
-              "theqtcompany.qt-cpp"
-              "theqtcompany.qt-ui"
-              "theqtcompany.qt-qml"
-              "13xforever.language-x86-64-assembly"
+              "slint.slint"
               "jjk.jjk"
             ];
           keybindings = [
