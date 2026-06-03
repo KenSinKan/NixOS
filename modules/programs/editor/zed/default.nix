@@ -17,6 +17,7 @@ in
         extensions = [
           "nix"
           "toml"
+          "slint"
           "typst"
         ];
         mutableUserSettings = false;
@@ -84,6 +85,7 @@ in
             clangd.binary.path = lib.getExe' pkgs.clang-tools "clangd";
             package-version-server.binary.path = lib.getExe pkgs.package-version-server;
             rust-analyzer.initialization_options.lldb.libraryPath = libcodelldb-path;
+            slint.binary.path = lib.getExe pkgs.slint-lsp;
             tinymist.binary.path = lib.getExe pkgs.tinymist;
           };
           load_direnv = "shell_hook";
