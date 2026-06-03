@@ -88,5 +88,6 @@
     opencode
     surrealdb
     surrealist
+    element-desktop
   ];
 }
