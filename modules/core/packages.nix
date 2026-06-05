@@ -78,7 +78,7 @@
     bitwarden-desktop
     krita
     hoppscotch
-    sage
+    # sage
     texliveFull
     texstudio
     dbeaver-bin
