@@ -70,6 +70,8 @@
             setopt inc_append_history
             setopt share_history
 
+            eval "$(devenv hook zsh)"
+
             # Lazy load completion styles (depends on compinit)
             zsh-defer -c '
               zstyle ":completion:*" menu select
