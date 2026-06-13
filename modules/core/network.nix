@@ -6,7 +6,7 @@ in
 {
 
   programs.amnezia-vpn = {
-    enable = true;
+    enable = false;
     # package = pkgs.amnezia-vpn-bin;
   };
   networking = {
