@@ -3,7 +3,7 @@
   imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
   services = {
     flatpak = {
-      enable = true;
+      enable = false;
 
       # List the Flatpak applications you want to install
       # Use the official Flatpak application ID (e.g., from flathub.org)
