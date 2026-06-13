@@ -19,6 +19,7 @@ in
           "toml"
           "slint"
           "typst"
+          "surrealql"
         ];
         mutableUserSettings = false;
         userSettings = {
