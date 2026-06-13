@@ -8,7 +8,7 @@
     gvfs.enable = true; # For Mounting USB & More
     udisks2.enable = true; # For Mounting USB & More
     postgresql = {
-      enable = true;
+      enable = false;
       enableTCPIP = true;
       ensureUsers = [
         {
