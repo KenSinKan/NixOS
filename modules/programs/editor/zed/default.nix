@@ -73,32 +73,13 @@ in
           languages.Rust = {
             tab_size = 4;
           };
-          lsp = {
-            ruff.binary = {
-              path = lib.getExe pkgs.ruff;
-              arguments = [ "server" ];
-            };
-            ty.binary = {
-              path = lib.getExe pkgs.ty;
-              arguments = [ "server" ];
-            };
-            nixd.binary.path = lib.getExe pkgs.nixd;
-            clangd.binary.path = lib.getExe' pkgs.clang-tools "clangd";
-            package-version-server.binary.path = lib.getExe pkgs.package-version-server;
-            rust-analyzer.initialization_options.lldb.libraryPath = libcodelldb-path;
-            slint.binary.path = lib.getExe pkgs.slint-lsp;
-            tinymist.binary.path = lib.getExe pkgs.tinymist;
-          };
+          lsp.rust-analyzer.initialization_options.lldb.libraryPath = libcodelldb-path;
           load_direnv = "shell_hook";
           theme.dark = "One Dark";
           theme.light = "One Light";
           theme.mode = "dark";
           ui_font_size = 16;
           vim_mode = false;
-          node = {
-            path = lib.getExe pkgs.nodejs;
-            npm_path = lib.getExe' pkgs.nodejs "npm";
-          };
           dap.CodeLLDB.binary = codelldb-path;
         };
       };
