@@ -89,5 +89,6 @@
     surrealdb
     surrealist
     element-desktop
+    sioyek
   ];
 }
