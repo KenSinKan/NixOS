@@ -36,6 +36,7 @@
             zsh-defer -c 'source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh; bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down'
             zsh-defer -c 'eval "$(direnv hook zsh)"' 2>/dev/null
             zsh-defer -c 'eval "$(zoxide init zsh)"' 2>/dev/null
+            zsh-defer -c 'eval "$(devenv hook zsh)"' 2>/dev/null
 
             # Sudo widget (double ESC to prepend sudo - replaces oh-my-zsh sudo plugin)
             sudo-command-line() {
@@ -70,7 +71,6 @@
             setopt inc_append_history
             setopt share_history
 
-            eval "$(devenv hook zsh)"
 
             # Lazy load completion styles (depends on compinit)
             zsh-defer -c '
@@ -154,6 +154,7 @@
             ld = "${pkgs.eza}/bin/eza -lhD --icons=auto"; # long list dirs
             tree = "${pkgs.eza}/bin/eza --icons=auto --tree"; # dir tree
             vc = "code --disable-gpu"; # gui code editor
+            zed = "zeditor";
             nv = "nvim";
             nf = "${pkgs.microfetch}/bin/microfetch";
             ff = "fastfetch";
@@ -175,12 +176,12 @@
 
             # Directory Shortcuts.
             dots = "cd ~/NixOS/";
-            games = "cd /mnt/games/";
-            work = "cd /mnt/work/";
-            media = "cd /mnt/work/media/";
-            projects = "cd /mnt/work/Projects/";
-            proj = "cd /mnt/work/Projects/";
-            dev = "cd /mnt/work/Projects/";
+            # games = "cd /mnt/games/";
+            # work = "cd /mnt/work/";
+            # media = "cd /mnt/work/media/";
+            # projects = "cd /mnt/work/Projects/";
+            # proj = "cd /mnt/work/Projects/";
+            dev = "cd ~/Coding/";
           };
         };
       }
