@@ -27,6 +27,7 @@
     fzf # Fuzzy Finder
     fd # Better Find
     git # Git
+    gh
     zoxide # Fast directory jumping (z/cd replacement)
     libjxl # Support for JXL Images
     microfetch # Small fetch (Blazingly fast)
