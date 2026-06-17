@@ -90,5 +90,6 @@
     surrealist
     element-desktop
     sioyek
+    anytype
   ];
 }

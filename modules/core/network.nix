@@ -16,7 +16,7 @@ in
     firewall = {
       enable = true;
       allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
+      allowedUDPPorts = [ 5353 ];
     };
   };
 
