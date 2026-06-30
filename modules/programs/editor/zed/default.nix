@@ -20,8 +20,11 @@ in
           "slint"
           "typst"
           "surrealql"
+          "meson"
+          "catppuccin"
+          "catppuccin-icons"
         ];
-        mutableUserSettings = false;
+        # mutableUserSettings = false;
         userSettings = {
           auto_update = false;
           project_panel.dock = "left";
@@ -73,11 +76,13 @@ in
           languages.Rust = {
             tab_size = 4;
           };
+          lsp.nixd.binary.path = lib.getExe pkgs.nixd;
           lsp.rust-analyzer.initialization_options.lldb.libraryPath = libcodelldb-path;
           load_direnv = "shell_hook";
-          theme.dark = "One Dark";
-          theme.light = "One Light";
-          theme.mode = "dark";
+          theme = "One Dark";
+          icon_theme = "Catppuccin Mocha";
+          buffer_font_family = "JetBrainsMono Nerd Font";
+          ui_font_family = "JetBrainsMono Nerd Font";
           ui_font_size = 16;
           vim_mode = false;
           dap.CodeLLDB.binary = codelldb-path;
