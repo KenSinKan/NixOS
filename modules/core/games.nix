@@ -31,10 +31,19 @@
     (prismlauncher.override {
       jdks = with pkgs; [
         graalvmPackages.graalvm-oracle
+        jdk25
         jdk21
         jdk17
         jdk8
       ];
+      prismlauncher-unwrapped = pkgs.prismlauncher-unwrapped.overrideAttrs (oldAttrs: {
+        src = pkgs.fetchFromGitHub {
+          owner = "diegiwg";
+          repo = "prismlauncher-cracked";
+          rev = "main";
+          hash = "sha256-YrqHeE9ZEnmxJiXE+IBAxbmNRFPE7mn9KbxZ3Mpu388=";
+        };
+      });
     })
 
     steam-run
