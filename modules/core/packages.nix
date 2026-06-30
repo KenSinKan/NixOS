@@ -76,7 +76,6 @@
     ayugram-desktop
     onlyoffice-desktopeditors
     vlc
-    bitwarden-desktop
     krita
     hoppscotch
     sage
