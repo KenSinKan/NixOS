@@ -23,6 +23,7 @@ in
           "meson"
           "catppuccin"
           "catppuccin-icons"
+          "neocmake"
         ];
         # mutableUserSettings = false;
         userSettings = {
