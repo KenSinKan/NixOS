@@ -25,6 +25,10 @@ in
       # Let Home Manager install and manage itself.
       programs.home-manager.enable = true;
       xdg.enable = true;
+      xdg.userDirs = {
+        enable = true;
+        createDirectories = true;
+      };
 
       home = {
         username = "${username}";
@@ -37,7 +41,7 @@ in
             else if editor == "vscode" then
               "code"
             else
-              "nano";
+              "zeditor";
           BROWSER = "${browser}";
           TERMINAL = "${terminal}";
         };
