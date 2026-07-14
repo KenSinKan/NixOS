@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   # TODO: review
   programs = {
@@ -8,6 +8,7 @@
       enable = true;
       enableSSHSupport = true;
     };
+    nix-ld.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -91,5 +92,6 @@
     element-desktop
     sioyek
     anytype
+    inputs.nix-alien.packages.${system}.nix-alien
   ];
 }

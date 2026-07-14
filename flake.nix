@@ -77,6 +77,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     crossmacro.url = "github:alper-han/CrossMacro";
+    nix-alien.url = "github:thiagokokada/nix-alien";
   };
 
   outputs =
