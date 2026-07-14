@@ -40,8 +40,10 @@ in
               "nvim"
             else if editor == "vscode" then
               "code"
+            else if editor == "zed" then
+              "zeditor"
             else
-              "zeditor";
+              "nano";
           BROWSER = "${browser}";
           TERMINAL = "${terminal}";
         };
