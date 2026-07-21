@@ -80,7 +80,9 @@
 
   powerManagement.enable = true;
   services.tuned.enable = true;
-  boot.kernelParams = [ "amd_pstate=active" ];
+  boot.kernelParams = [
+    "amd_pstate=active"
+  ];
   boot.blacklistedKernelModules = [ "k10temp" ];
   hardware.enableAllFirmware = true;
 
