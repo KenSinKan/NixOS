@@ -8,6 +8,11 @@
   environment.systemPackages = with pkgs; [ rocmPackages.amdsmi ];
   hardware.amdgpu = {
     opencl.enable = true;
+    initrd.enable = true;
+    overdrive = {
+      enable = true;
+      ppfeaturemask = "0xffffffff";
+    };
   };
   hardware.graphics = {
     enable = true;
@@ -16,5 +21,4 @@
       rocmPackages.clr.icd
     ];
   };
-  boot.initrd.kernelModules = [ "amdgpu" ];
 }
