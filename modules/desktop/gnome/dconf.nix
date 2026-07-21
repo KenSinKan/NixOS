@@ -141,7 +141,7 @@ in
               ]
             ) (lib.strings.splitString "," kbdLayout);
             xkb-options = [
-              "grp:alt_shift_toggle"
+              "grp:caps_toggle"
               "terminate:ctrl_alt_bksp"
               "custom:types"
             ];

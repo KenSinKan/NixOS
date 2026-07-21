@@ -34,7 +34,7 @@ hl.config({
 		local t = {
 			kb_layout = kbdLayout,
 			kb_variant = kbdVariant,
-			kb_options = "grp:alt_shift_toggle",
+			kb_options = "grp:caps_toggle",
 			repeat_delay = 275,
 			repeat_rate = 35,
 			numlock_by_default = true,
