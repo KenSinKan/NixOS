@@ -14,6 +14,7 @@ in
     (_: {
       programs.zed-editor = {
         enable = true;
+        extraPackages = with pkgs; [ nixd ];
         extensions = [
           "nix"
           "toml"
@@ -77,7 +78,6 @@ in
           languages.Rust = {
             tab_size = 4;
           };
-          lsp.nixd.binary.path = lib.getExe pkgs.nixd;
           lsp.rust-analyzer.initialization_options.lldb.libraryPath = libcodelldb-path;
           load_direnv = "shell_hook";
           theme = "One Dark";
