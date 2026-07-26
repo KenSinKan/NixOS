@@ -93,5 +93,6 @@
     sioyek
     anytype
     inputs.nix-alien.packages.${system}.nix-alien
+    ungoogled-chromium
   ];
 }
