@@ -5,8 +5,8 @@
   desktop = "hyprland"; # hyprland, i3, gnome, plasma6
 
   # Theme & Appearance
-  bar = "hyprpanel"; # hyprpanel, waybar
-  waybarTheme = "minimal"; # stylish, minimal
+  bar = "waybar"; # wayle, waybar
+  waybarTheme = "stylish"; # stylish, minimal
   sddmTheme = "astronaut"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   defaultWallpaper = "galaxy.webp"; # Change with SUPER + SHIFT + W (Hyprland)
   hyprlockWallpaper = "galaxy.webp";
@@ -23,7 +23,7 @@
   hostname = "Lenovo-16AHP9";
   videoDriver = "amdgpu"; # nvidia, amdgpu, intel
   bluetoothSupport = true; # Whether your motherboard supports bluetooth
-
+  batterySupport = true;
   # Localization
   timezone = "Europe/Moscow";
   locale = "ru_RU.UTF-8";

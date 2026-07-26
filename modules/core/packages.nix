@@ -79,7 +79,7 @@
     vlc
     krita
     hoppscotch
-    sage
+    # sage
     texliveFull
     texstudio
     dbeaver-bin
