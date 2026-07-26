@@ -26,7 +26,7 @@
   environment.systemPackages = with pkgs; [
     lutris
     heroic
-    bottles
+    # bottles
     # ryujinx
     (prismlauncher.override {
       jdks = with pkgs; [
