@@ -82,6 +82,7 @@
       url = "github:catppuccin/lazygit/d3c95a67ea3f778f7705d8ef814f87ac5213436d";
       flake = false;
     };
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs =
