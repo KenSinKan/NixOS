@@ -93,6 +93,7 @@
             rm = "rm -vI";
             bc = "bc -ql";
             mkd = "mkdir -pv";
+            cat = "bat";
             tp = "${pkgs.trash-cli}/bin/trash-put";
             tpr = "${pkgs.trash-cli}/bin/trash-restore";
             grep = "grep --color=always";
