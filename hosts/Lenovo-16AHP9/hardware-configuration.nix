@@ -94,7 +94,31 @@
       nixpkgs.overlays = [
         inputs.nix-cachyos-kernel.overlays.pinned
       ];
+
       boot.kernelPackages = lib.mkForce inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-bore-lto-zen4;
+      boot.extraModulePackages = lib.mkForce [
+        (
+          inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-bore-lto-zen4.zenpower.overrideAttrs
+          (old: {
+            nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+              pkgs.llvmPackages.clang-unwrapped
+              pkgs.llvmPackages.lld
+              pkgs.llvmPackages.llvm
+            ];
+
+            makeFlags = (old.makeFlags or [ ]) ++ [
+              "LLVM=1"
+              "LLVM_IAS=1"
+              "CC=clang"
+              "LD=ld.lld"
+              "AR=llvm-ar"
+              "NM=llvm-nm"
+              "OBJCOPY=llvm-objcopy"
+              "STRIP=llvm-strip"
+            ];
+          })
+        )
+      ];
     };
   };
 }
