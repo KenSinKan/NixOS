@@ -79,7 +79,7 @@
   swapDevices = [ ];
 
   powerManagement.enable = true;
-  services.tuned.enable = true;
+  services.power-profiles-daemon.enable = true;
   boot.kernelParams = [
     "amd_pstate=active"
   ];
