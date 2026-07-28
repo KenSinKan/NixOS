@@ -42,14 +42,14 @@ in
   };
   ExtensionUpdate = true;
   FirefoxHome = {
-    Search = false;
+    Search = true;
     TopSites = false;
     SponsoredTopSites = false;
     Highlights = false;
     Pocket = false;
     SponsoredPocket = false;
     Snippets = false;
-    Locked = false;
+    Locked = true;
   };
   HardwareAcceleration = true;
   ManualAppUpdateOnly = true;
