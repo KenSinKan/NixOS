@@ -51,6 +51,16 @@
           "alt+9" = "goto_tab 9";
           "alt+0" = "goto_tab 10";
 
+          "ctrl+alt+v" = "launch --cwd=current --location=vsplit";
+          "ctrl+alt+h" = "launch --cwd=current --location=hsplit";
+
+          "ctrl+alt+l" = "next_layout";
+
+          "alt+left" = "neighboring_window left";
+          "alt+right" = "neighboring_window right";
+          "alt+up" = "neighboring_window up";
+          "alt+down" = "neighboring_window down";
+
           # Tmux
           "ctrl+t" = "launch --cwd=current --type=overlay tmux-sessionizer";
           # "ctrl+t" = "launch --cwd=current --title tmux-sessionizer tmux-sessionizer";
