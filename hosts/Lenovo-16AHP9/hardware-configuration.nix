@@ -26,11 +26,13 @@
     "sdhci_pci"
     "dm_crypt"
     "tun"
+    "tpm_tis"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
     "kvm-amd"
     "zenpower"
+    "ntsync"
   ];
   boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
 
@@ -46,6 +48,8 @@
   boot.initrd.luks.devices."cryptroot" = {
     device = "/dev/disk/by-uuid/4a8859fd-c9d4-4920-992e-68810c0f60b0";
     allowDiscards = true;
+    bypassWorkqueues = true;
+    crypttabExtraOpts = [ "tpm2-device=auto" ];
   };
 
   fileSystems."/nix" = {
@@ -88,6 +92,10 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  security.tpm2.enable = true;
+  systemd.tpm2.enable = true;
+  boot.initrd.systemd.enable = true;
+  boot.initrd.systemd.tpm2.enable = true;
 
   specialisation = {
     cachyos-kernel.configuration = {
