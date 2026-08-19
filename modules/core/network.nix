@@ -14,7 +14,7 @@ in
     networkmanager.enable = true;
 
     firewall = {
-      enable = false;
+      enable = true;
       allowedTCPPorts = [ ];
       allowedUDPPorts = [ 5353 ];
     };
