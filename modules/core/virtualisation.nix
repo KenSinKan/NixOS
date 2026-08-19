@@ -99,6 +99,7 @@
     spice-vdagent
     virtio-win
     win-spice
+    distrobox
 
     # lazydocker
     # docker-client
