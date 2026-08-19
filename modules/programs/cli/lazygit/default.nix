@@ -1,17 +1,4 @@
 { pkgs, inputs, ... }:
-let
-  fromYAML =
-    f:
-    let
-      jsonFile =
-        pkgs.runCommand "lazygit yaml to attribute set" { nativeBuildInputs = [ pkgs.jc ]; } # bash
-
-          ''
-            jc --yaml < "${f}" > "$out"
-          '';
-    in
-    builtins.elemAt (builtins.fromJSON (builtins.readFile jsonFile)) 0;
-in
 {
   home-manager.sharedModules = [
     (_: {
@@ -21,10 +8,28 @@ in
       programs.lazygit = {
         enable = true;
         settings = {
-          gui = fromYAML (inputs.catppuccin-lazygit + "/themes/mocha/blue.yml");
-          # gui = fromYAML (
-          #   pkgs.catppuccin + "/lazygit/themes/blue.yml"
-          # );
+          gui = {
+            "theme" = {
+              "activeBorderColor" = [
+                "#89b4fa"
+                "bold"
+              ];
+              "inactiveBorderColor" = [ "#a6adc8" ];
+              "searchingActiveBorderColor" = [ "#f9e2af" ];
+              "optionsTextColor" = [ "#89b4fa" ];
+              "selectedLineBgColor" = [ "#313244" ];
+              "inactiveViewSelectedLineBgColor" = [ "#6c7086" ];
+              "cherryPickedCommitFgColor" = [ "#89b4fa" ];
+              "cherryPickedCommitBgColor" = [ "#45475a" ];
+              "markedBaseCommitFgColor" = [ "#89b4fa" ];
+              "markedBaseCommitBgColor" = [ "#f9e2af" ];
+              "unstagedChangesColor" = [ "#f38ba8" ];
+              "defaultFgColor" = [ "#cdd6f4" ];
+            };
+            "authorColors" = {
+              "*" = "#b4befe";
+            };
+          };
           git = {
             overrideGpg = true;
           };
