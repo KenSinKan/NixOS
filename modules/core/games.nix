@@ -15,13 +15,6 @@
     enable = true;
     enable32Bit = true;
   };
-  nixpkgs.overlays = [
-    (_: prev: {
-      openldap = prev.openldap.overrideAttrs {
-        doCheck = !prev.stdenv.hostPlatform.isi686;
-      };
-    })
-  ];
   boot.initrd.availableKernelModules = [ "ntsync" ];
   environment.systemPackages = with pkgs; [
     lutris
