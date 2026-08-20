@@ -8,7 +8,7 @@ in
     clean = {
       enable = true;
       dates = "daily";
-      extraArgs = "--keep-since 3d --keep 3";
+      extraArgs = "--keep 3";
     };
     flake = "/home/${username}/NixOS";
   };
