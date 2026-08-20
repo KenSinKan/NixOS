@@ -6,7 +6,6 @@
   lib,
   pkgs,
   modulesPath,
-  inputs,
   ...
 }:
 
@@ -16,59 +15,34 @@
   ];
 
   boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "usbhid"
-    "uas"
-    "sd_mod"
-    "btrfs"
     "nvme"
+    "xhci_pci"
+    "usbhid"
     "sdhci_pci"
-    "dm_crypt"
-    "tun"
-    "tpm_tis"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [
-    "kvm-amd"
-    "zenpower"
-    "ntsync"
-  ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.zenpower ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [
-      "subvol=@"
-      "compress=zstd:3"
-    ];
+    options = [ "subvol=@" ];
   };
 
-  boot.initrd.luks.devices."cryptroot" = {
-    device = "/dev/disk/by-uuid/4a8859fd-c9d4-4920-992e-68810c0f60b0";
-    allowDiscards = true;
-    bypassWorkqueues = true;
-    crypttabExtraOpts = [ "tpm2-device=auto" ];
-  };
+  boot.initrd.luks.devices."cryptroot".device =
+    "/dev/disk/by-uuid/4a8859fd-c9d4-4920-992e-68810c0f60b0";
 
   fileSystems."/nix" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [
-      "subvol=@nix"
-      "compress=zstd:3"
-      "noatime"
-    ];
+    options = [ "subvol=@nix" ];
   };
 
   fileSystems."/home" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [
-      "subvol=@home"
-      "compress=zstd:3"
-    ];
+    options = [ "subvol=@home" ];
   };
 
   fileSystems."/boot" = {
@@ -82,51 +56,6 @@
 
   swapDevices = [ ];
 
-  powerManagement.enable = true;
-  services.power-profiles-daemon.enable = true;
-  boot.kernelParams = [
-    "amd_pstate=active"
-  ];
-  boot.blacklistedKernelModules = [ "k10temp" ];
-  hardware.enableAllFirmware = true;
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  security.tpm2.enable = true;
-  systemd.tpm2.enable = true;
-  boot.initrd.systemd.enable = true;
-  boot.initrd.systemd.tpm2.enable = true;
-
-  specialisation = {
-    cachyos-kernel.configuration = {
-      nixpkgs.overlays = [
-        inputs.nix-cachyos-kernel.overlays.pinned
-      ];
-
-      boot.kernelPackages = lib.mkForce inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-bore-lto-zen4;
-      boot.extraModulePackages = lib.mkForce [
-        (
-          inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-bore-lto-zen4.zenpower.overrideAttrs
-          (old: {
-            nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-              pkgs.llvmPackages.clang-unwrapped
-              pkgs.llvmPackages.lld
-              pkgs.llvmPackages.llvm
-            ];
-
-            makeFlags = (old.makeFlags or [ ]) ++ [
-              "LLVM=1"
-              "LLVM_IAS=1"
-              "CC=clang"
-              "LD=ld.lld"
-              "AR=llvm-ar"
-              "NM=llvm-nm"
-              "OBJCOPY=llvm-objcopy"
-              "STRIP=llvm-strip"
-            ];
-          })
-        )
-      ];
-    };
-  };
 }
