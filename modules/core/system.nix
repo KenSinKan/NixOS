@@ -20,7 +20,11 @@ in
 {
   imports = [ inputs.nix-index-database.nixosModules.nix-index ];
   programs = {
-    nix-index-database.comma.enable = true;
+
+    nix-index-database = {
+      enable = true;
+      comma.enable = true;
+    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
