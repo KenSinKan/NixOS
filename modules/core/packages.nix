@@ -95,5 +95,6 @@
     anytype
     inputs.nix-alien.packages.${stdenv.hostPlatform.system}.nix-alien
     ungoogled-chromium
+    hotspot
   ];
 }
