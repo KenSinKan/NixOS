@@ -65,6 +65,7 @@ in
               "custom/left_div-8"
               "battery"
               "custom/left_inv-2"
+              "hyprland/language"
               "custom/notification"
               "custom/power_menu"
             ];
@@ -409,6 +410,14 @@ in
               on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%+";
               on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
               tooltip = false;
+            };
+
+            "hyprland/language" = {
+              format = "󰌌 {}";
+              format-en = "EN";
+              format-ru = "RU";
+              min-length = 5;
+              max-length = 5;
             };
 
             "battery" = {
