@@ -92,6 +92,9 @@ in
       "noatime"
     ];
   };
+  boot.zswap = {
+    enable = true;
+  };
 
   specialisation = {
     cachyos-kernel.configuration = {
