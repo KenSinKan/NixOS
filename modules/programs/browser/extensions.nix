@@ -95,10 +95,15 @@
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
     };
     # Privacy Badger
-    "{jid1-MnnxcxisBPnSXQ@jetpack}" = {
+    "jid1-MnnxcxisBPnSXQ@jetpack" = {
       private_browsing = true;
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
+    };
+    "keepassxc-browser@keepassxc.org" = {
+      private_browsing = true;
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi";
     };
     # View Xpi Id's in Firefox Extension Store
     "queryamoid@kaply.com" = {
