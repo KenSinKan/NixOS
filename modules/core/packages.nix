@@ -97,5 +97,6 @@
     ungoogled-chromium
     hotspot
     keepassxc
+    gf
   ];
 }
