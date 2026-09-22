@@ -98,5 +98,6 @@
     hotspot
     keepassxc
     gf
+    ispell
   ];
 }

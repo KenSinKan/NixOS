@@ -6,7 +6,8 @@
       services.emacs.enable = true;
       programs.doom-emacs = {
         enable = true;
-        doomDir = inputs.doom-config;
+        # doomDir = inputs.doom-config;
+        provideEmacs = true;
       };
       home.packages = with pkgs; [
         nil
