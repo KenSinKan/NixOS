@@ -40,6 +40,8 @@ in
               "nvim"
             else if editor == "vscode" then
               "code"
+            else if editor == "helix" then
+              "hx"
             else if editor == "zed" then
               "zeditor"
             else

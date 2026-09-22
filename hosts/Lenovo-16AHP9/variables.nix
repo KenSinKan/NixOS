@@ -13,7 +13,7 @@
 
   # Default Applications
   terminal = "kitty"; # kitty, alacritty
-  editor = "zed"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
+  editor = "helix"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim, helix, zed
   browser = "zen-beta"; # zen-beta, firefox, floorp
   fileManager = "yazi"; # yazi, lf
   shell = "zsh"; # zsh, bash

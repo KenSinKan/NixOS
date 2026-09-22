@@ -42,7 +42,8 @@ in
     ../../modules/programs/browser/${vars.browser} # Set browser defined in variables.nix
     ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
     ../../modules/programs/editor/${vars.editor} # Set editor defined in variables.nix
-    ../../modules/programs/editor/helix
+    ../../modules/programs/editor/zed
+    ../../modules/programs/editor/emacs
     ../../modules/programs/file-manager/${vars.fileManager} # Set file-manager defined in variables.nix
     ../../modules/programs/cli/tmux
     ../../modules/programs/cli/direnv
@@ -106,24 +107,24 @@ in
       boot.extraModulePackages = lib.mkForce [
         (
           inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-bore-lto-zen4.zenpower.overrideAttrs
-          (old: {
-            nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-              pkgs.llvmPackages.clang-unwrapped
-              pkgs.llvmPackages.lld
-              pkgs.llvmPackages.llvm
-            ];
+            (old: {
+              nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+                pkgs.llvmPackages.clang-unwrapped
+                pkgs.llvmPackages.lld
+                pkgs.llvmPackages.llvm
+              ];
 
-            makeFlags = (old.makeFlags or [ ]) ++ [
-              "LLVM=1"
-              "LLVM_IAS=1"
-              "CC=clang"
-              "LD=ld.lld"
-              "AR=llvm-ar"
-              "NM=llvm-nm"
-              "OBJCOPY=llvm-objcopy"
-              "STRIP=llvm-strip"
-            ];
-          })
+              makeFlags = (old.makeFlags or [ ]) ++ [
+                "LLVM=1"
+                "LLVM_IAS=1"
+                "CC=clang"
+                "LD=ld.lld"
+                "AR=llvm-ar"
+                "NM=llvm-nm"
+                "OBJCOPY=llvm-objcopy"
+                "STRIP=llvm-strip"
+              ];
+            })
         )
       ];
     };
