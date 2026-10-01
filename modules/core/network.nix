@@ -6,8 +6,7 @@ in
 {
 
   programs.amnezia-vpn = {
-    enable = false;
-    # package = pkgs.amnezia-vpn-bin;
+    enable = true;
   };
   networking = {
     hostName = "${hostname}";
