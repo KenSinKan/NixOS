@@ -103,7 +103,7 @@ in
               return-type = "json";
               format = "{0}";
               on-click = "${gpuinfo}/bin/gpuinfo --toggle";
-              interval = 5; # once every 5 seconds
+              interval = 30; # once every 30 seconds
               tooltip = true;
               max-length = 1000;
             };
@@ -255,6 +255,7 @@ in
                 ""
                 ""
               ];
+              interval = 10;
               on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 2%+";
               on-scroll-down = "${pkgs.brightnessctl}/bin/brightnessctl set 2%-";
             };

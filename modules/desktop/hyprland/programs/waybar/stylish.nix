@@ -405,6 +405,7 @@ in
                 ""
                 ""
               ];
+              interval = 10;
               min-length = 7;
               max-length = 7;
               on-scroll-up = "${pkgs.brightnessctl}/bin/brightnessctl set 1%+";
