@@ -1,14 +1,18 @@
 { pkgs, defaultWallpaper, ... }:
 let
   awww = "${pkgs.awww}/bin/awww";
-  awww-daemon = "${pkgs.awww}/bin/awww-daemon";
 in
 pkgs.writeShellScriptBin "wallpaper" ''
 
-if ! pgrep awww-daemon &> /dev/null; then
-  ${awww-daemon} &
-  sleep 0.5
-fi
+# The daemon is managed by the systemd user service (services.awww.enable),
+# starting a second one would make it crash-loop on the socket
+systemctl --user start awww.service
+
+# Wait for the daemon to accept commands
+for _ in {1..20}; do
+  ${awww} query &> /dev/null && break
+  sleep 0.25
+done
 
 # Restore
 ${awww} restore &> /dev/null
