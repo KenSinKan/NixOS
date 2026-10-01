@@ -99,5 +99,6 @@
     keepassxc
     gf
     ispell
+    ghidra
   ];
 }
