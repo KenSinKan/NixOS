@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  # TODO: review
+  hardware.opentabletdriver.enable = true;
   programs = {
     fuse.userAllowOther = true;
     mtr.enable = true;
@@ -100,5 +100,6 @@
     gf
     ispell
     ghidra
+    xournalpp
   ];
 }
