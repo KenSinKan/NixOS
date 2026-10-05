@@ -3,7 +3,7 @@
   imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
   services = {
     flatpak = {
-      enable = false;
+      enable = true;
 
       # List the Flatpak applications you want to install
       # Use the official Flatpak application ID (e.g., from flathub.org)
@@ -11,6 +11,8 @@
       packages = [
         "com.github.tchx84.Flatseal" # Manage flatpak permissions - should always have this
         "io.github.flattool.Warehouse" # Manage flatpaks, clean data, remove flatpaks and deps
+        "io.github.ksharindam.chemcanvas"
+        "com.logseq.Logseq"
         #"it.mijorus.gearlever"           # Manage and support AppImages
         #"com.rtosta.zapzap"              # WhatsApp client
         #"io.github.freedoom.Phase1"      #  Classic Doom FPS 1
