@@ -88,12 +88,6 @@
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/indie-wiki-buddy/latest.xpi";
     };
-    # Bitwarden
-    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-      private_browsing = true;
-      installation_mode = "force_installed";
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-    };
     # Privacy Badger
     "jid1-MnnxcxisBPnSXQ@jetpack" = {
       private_browsing = true;
