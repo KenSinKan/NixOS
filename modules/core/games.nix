@@ -30,6 +30,7 @@
         jdk8
       ];
       prismlauncher-unwrapped = pkgs.prismlauncher-unwrapped.overrideAttrs (oldAttrs: {
+        NIX_CFLAGS_COMPILE = (oldAttrs.NIX_CFLAGS_COMPILE or "") + " -Wno-error=sfinae-incomplete";
         src = pkgs.fetchFromGitHub {
           owner = "diegiwg";
           repo = "prismlauncher-cracked";

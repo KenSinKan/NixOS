@@ -114,6 +114,11 @@ in
                 pkgs.llvmPackages.llvm
               ];
 
+              postPatch = (old.postPatch or "") + ''
+                substituteInPlace Makefile --replace-fail "-Wimplicit-fallthrough=3" "-Wimplicit-fallthrough"
+              '';
+
+
               makeFlags = (old.makeFlags or [ ]) ++ [
                 "LLVM=1"
                 "LLVM_IAS=1"
