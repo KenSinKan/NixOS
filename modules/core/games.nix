@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -21,7 +22,8 @@
     heroic
     # bottles
     # ryujinx
-    (prismlauncher.override {
+
+    (inputs.prism.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
       jdks = with pkgs; [
         graalvmPackages.graalvm-oracle
         jdk25
@@ -29,15 +31,6 @@
         jdk17
         jdk8
       ];
-      prismlauncher-unwrapped = pkgs.prismlauncher-unwrapped.overrideAttrs (oldAttrs: {
-        NIX_CFLAGS_COMPILE = (oldAttrs.NIX_CFLAGS_COMPILE or "") + " -Wno-error=sfinae-incomplete";
-        src = pkgs.fetchFromGitHub {
-          owner = "diegiwg";
-          repo = "prismlauncher-cracked";
-          rev = "main";
-          hash = "sha256-YrqHeE9ZEnmxJiXE+IBAxbmNRFPE7mn9KbxZ3Mpu388=";
-        };
-      });
     })
 
     steam-run

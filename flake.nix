@@ -79,6 +79,7 @@
     crossmacro.url = "github:alper-han/CrossMacro";
     nix-alien.url = "github:thiagokokada/nix-alien";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    prism.url = "github:Diegiwg/PrismLauncher-Cracked";
   };
 
   outputs =
