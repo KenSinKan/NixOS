@@ -1,0 +1,36 @@
+{
+  username = "maksim"; # auto-set with install.sh, live-install.sh, and rebuild scripts.
+
+  # Desktop Environment
+  desktop = "hyprland"; # hyprland, i3, gnome, plasma6
+
+  # Theme & Appearance
+  bar = "waybar"; # wayle, waybar
+  waybarTheme = "stylish"; # stylish, minimal
+  sddmTheme = "astronaut"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
+  defaultWallpaper = "galaxy.webp"; # Change with SUPER + SHIFT + W (Hyprland)
+  hyprlockWallpaper = "galaxy.webp";
+
+  # Default Applications
+  terminal = "kitty"; # kitty, alacritty
+  editor = "helix"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim, helix, zed
+  browser = "zen-beta"; # zen-beta, firefox, floorp
+  fileManager = "yazi"; # yazi, lf
+  shell = "zsh"; # zsh, bash
+  games = true; # Enable/Disable gaming module
+
+  # Hardware
+  hostname = "NixOS-Desktop";
+  videoDriver = "nvidia"; # nvidia, amdgpu, intel
+  nvidiaChannel = "latest"; # stable, latest, beta, legacy_xxx
+  bluetoothSupport = true; # Whether your motherboard supports bluetooth
+  batterySupport = true;
+  # Localization
+  timezone = "Europe/Moscow";
+  locale = "ru_RU.UTF-8";
+  clock24h = true;
+  kbdLayout = "us,ru";
+  kbdVariant = "";
+  consoleKeymap = "us";
+  capslockAsESC = false;
+}

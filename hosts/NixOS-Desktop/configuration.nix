@@ -1,0 +1,91 @@
+{
+  lib,
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+let
+  vars = import ./variables.nix;
+in
+{
+  imports = [
+    ./hardware-configuration.nix
+    ./host-packages.nix
+
+    # Core Modules (Don't change unless you know what you're doing)
+    ../../modules/scripts
+    ../../modules/core/boot.nix
+    ../../modules/core/bash.nix
+    ../../modules/core/zsh.nix
+    ../../modules/core/starship.nix
+    ../../modules/core/fonts.nix
+    ../../modules/core/hardware.nix
+    ../../modules/core/network.nix
+    ../../modules/core/dns.nix
+    ../../modules/core/nh.nix
+    ../../modules/core/packages.nix
+    ../../modules/core/printing.nix
+    ../../modules/core/sddm.nix
+    ../../modules/core/security.nix
+    ../../modules/core/services.nix
+    ../../modules/core/syncthing.nix
+    ../../modules/core/system.nix
+    ../../modules/core/users.nix
+    ../../modules/core/flatpak.nix
+    ../../modules/core/virtualisation.nix
+    # ../../modules/core/dlna.nix
+
+    # Optional
+    ../../modules/hardware/video/${vars.videoDriver}.nix # Enable gpu drivers defined in variables.nix
+    ../../modules/desktop/${vars.desktop} # Set window manager defined in variables.nix
+    ../../modules/programs/browser/${vars.browser} # Set browser defined in variables.nix
+    ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
+    ../../modules/programs/editor/${vars.editor} # Set editor defined in variables.nix
+    ../../modules/programs/editor/zed
+    ../../modules/programs/editor/emacs
+    ../../modules/programs/file-manager/${vars.fileManager} # Set file-manager defined in variables.nix
+    ../../modules/programs/cli/tmux
+    ../../modules/programs/cli/direnv
+    ../../modules/programs/cli/lazygit
+    ../../modules/programs/cli/cava
+    # ../../modules/programs/cli/fastfetch
+    ../../modules/programs/cli/btop
+    ../../modules/programs/media/discord
+    ../../modules/programs/media/spicetify
+    # ../../modules/programs/media/youtube-music
+    # ../../modules/programs/media/thunderbird
+    # ../../modules/programs/media/obs-studio
+    ../../modules/programs/media/mpv
+    # ../../modules/programs/misc/tlp
+    ../../modules/programs/file-manager/thunar
+    ../../modules/programs/misc/lact # GPU fan, clock and power configuration
+    ../../modules/programs/misc/throne
+  ]
+  ++ lib.optional (vars.games == true) ../../modules/core/games.nix;
+
+  boot.initrd.availableKernelModules = [
+    "ahci"
+    "uas"
+    "sd_mod"
+    "btrfs"
+    "dm_crypt"
+    "tun"
+    "tpm_tis"
+  ];
+  boot.kernelModules = [
+    "ntsync"
+    "it87"
+  ];
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "performance";
+  services.power-profiles-daemon.enable = true;
+  hardware.enableAllFirmware = true;
+  boot.extraModprobeConfig = ''
+    options it87 force_id=0x8689 ignore_resource_conflict=1
+  '';
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.pinned
+  ];
+  boot.kernelPackages = lib.mkForce inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-bore-lto-x86_64-v3;
+}

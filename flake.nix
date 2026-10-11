@@ -140,6 +140,7 @@
       );
       nixosConfigurations = {
         Default = mkHost "Default";
+        NixOS-Desktop = mkHost "NixOS-Desktop";
         Lenovo-16AHP9 = mkHost "Lenovo-16AHP9";
       };
     };
