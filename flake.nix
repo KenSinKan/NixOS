@@ -80,6 +80,7 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     prism.url = "github:Diegiwg/PrismLauncher-Cracked";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
   };
 
   outputs =
@@ -102,6 +103,7 @@
           system = forAllSystems (system: system);
           modules = [
             ./hosts/${host}/configuration.nix
+            inputs.determinate.nixosModules.default
           ];
           specialArgs = {
             overlays = import ./overlays { inherit inputs host; };

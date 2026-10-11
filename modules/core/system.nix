@@ -57,6 +57,7 @@ in
         "https://hyprland.cachix.org/"
         "https://noctalia.cachix.org"
         "https://attic.xuyh0120.win/lantian"
+"https://install.determinate.systems"
         # "https://nix-gaming.cachix.org"
         # "https://chaotic-nyx.cachix.org"
         # "https://devenv.cachix.org"
@@ -67,6 +68,7 @@ in
         "https://hyprland.cachix.org/"
         "https://noctalia.cachix.org"
         "https://attic.xuyh0120.win/lantian"
+        "https://install.determinate.systems"
         # "https://nix-gaming.cachix.org"
         # "https://chaotic-nyx.cachix.org"
         # "https://devenv.cachix.org"
@@ -77,6 +79,7 @@ in
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+        "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
         # "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
         # "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
         # "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
@@ -91,7 +94,7 @@ in
       keep-derivations = true;
     };
     optimise.automatic = true;
-    package = pkgs.nix;
+    # package = pkgs.nix;
   };
   time.timeZone = "${timezone}";
   i18n.defaultLocale = "${locale}";
