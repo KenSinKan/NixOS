@@ -101,5 +101,6 @@
     ispell
     ghidra
     xournalpp
+    logseq
   ];
 }

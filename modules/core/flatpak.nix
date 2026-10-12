@@ -12,7 +12,6 @@
         "com.github.tchx84.Flatseal" # Manage flatpak permissions - should always have this
         "io.github.flattool.Warehouse" # Manage flatpaks, clean data, remove flatpaks and deps
         "io.github.ksharindam.chemcanvas"
-        "com.logseq.Logseq"
         #"it.mijorus.gearlever"           # Manage and support AppImages
         #"com.rtosta.zapzap"              # WhatsApp client
         #"io.github.freedoom.Phase1"      #  Classic Doom FPS 1

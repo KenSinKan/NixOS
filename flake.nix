@@ -82,6 +82,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     prism.url = "github:Diegiwg/PrismLauncher-Cracked";
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    nixpkgs-logseq-pr.url = "github:nixos/nixpkgs/pull/516682/head";
   };
 
   outputs =

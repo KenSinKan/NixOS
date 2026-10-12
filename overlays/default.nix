@@ -22,6 +22,8 @@ in
       withSystemVencord = false;
       withMiddleClickScroll = true;
     };
+
+    logseq = inputs.nixpkgs-logseq-pr.legacyPackages.${final.stdenv.hostPlatform.system}.logseq;
   };
 
   nix4vscode = inputs.nix4vscode.overlays.forVscode;
