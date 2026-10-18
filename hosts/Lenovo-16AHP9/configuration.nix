@@ -43,7 +43,6 @@ in
     ../../modules/programs/terminal/${vars.terminal} # Set terminal defined in variables.nix
     ../../modules/programs/editor/${vars.editor} # Set editor defined in variables.nix
     ../../modules/programs/editor/zed
-    ../../modules/programs/editor/emacs
     ../../modules/programs/file-manager/${vars.fileManager} # Set file-manager defined in variables.nix
     ../../modules/programs/cli/tmux
     ../../modules/programs/cli/direnv
@@ -117,7 +116,6 @@ in
               postPatch = (old.postPatch or "") + ''
                 substituteInPlace Makefile --replace-fail "-Wimplicit-fallthrough=3" "-Wimplicit-fallthrough"
               '';
-
 
               makeFlags = (old.makeFlags or [ ]) ++ [
                 "LLVM=1"
