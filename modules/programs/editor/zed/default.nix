@@ -17,13 +17,9 @@ in
         extensions = [
           "nix"
           "toml"
-          "slint"
           "typst"
-          "surrealql"
-          "meson"
           "catppuccin"
           "catppuccin-icons"
-          "neocmake"
         ];
         # mutableUserSettings = false;
         userSettings = {
@@ -34,7 +30,7 @@ in
           outline_panel.dock = "left";
           terminal.dock = "bottom";
           diagnostics.inline.enabled = true;
-          disable_ai = true;
+          disable_ai = false;
           telemetry.diagnostics = false;
           telemetry.metrics = false;
           sticky_scroll.enabled = false;
