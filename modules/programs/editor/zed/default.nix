@@ -20,8 +20,10 @@ in
           "typst"
           "catppuccin"
           "catppuccin-icons"
+          "lua"
+          "xmake"
         ];
-        # mutableUserSettings = false;
+        mutableUserSettings = true;
         userSettings = {
           auto_update = false;
           project_panel.dock = "left";
@@ -31,6 +33,9 @@ in
           terminal.dock = "bottom";
           diagnostics.inline.enabled = true;
           disable_ai = false;
+          agent.threads_sidebar.position = "right";
+          agent.dock = "right";
+          language_models.llama.cpp.api_url = "http://192.168.2.81:8080";
           telemetry.diagnostics = false;
           telemetry.metrics = false;
           sticky_scroll.enabled = false;
