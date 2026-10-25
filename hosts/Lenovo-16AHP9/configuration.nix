@@ -143,6 +143,5 @@ in
 
   security.tpm2.enable = true;
   systemd.tpm2.enable = true;
-  boot.initrd.systemd.enable = true;
   boot.initrd.systemd.tpm2.enable = true;
 }

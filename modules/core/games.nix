@@ -25,7 +25,8 @@
 
     (inputs.prism.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
       jdks = with pkgs; [
-        graalvmPackages.graalvm-oracle
+        # graalvmPackages.graalvm-oracle
+        graalvmPackages.graalvm-ce
         jdk25
         jdk21
         jdk17
