@@ -88,6 +88,5 @@ in
     inputs.nix-cachyos-kernel.overlays.pinned
   ];
   boot.kernelPackages = lib.mkForce inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-bore-lto-x86_64-v3;
-  nixpkgs.config.cudaSupport = true;
   networking.firewall.allowedTCPPorts = [ 8080 ];
 }
